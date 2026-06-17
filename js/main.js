@@ -48,17 +48,4 @@ if (revealEls.length) {
   revealEls.forEach(el => observer.observe(el));
 }
 
-// Contact form prevent default (placeholder behavior)
-const contactForm = document.querySelector('#contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = contactForm.querySelector('button[type="submit"]');
-    if (btn) {
-      btn.textContent = 'Message Sent';
-      btn.style.background = 'transparent';
-      btn.style.color = 'var(--taupe)';
-      btn.disabled = true;
-    }
-  });
-}
+// Form submission handled inline on contact.html
