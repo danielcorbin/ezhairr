@@ -5,23 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="EzHairr services — luxury hair color, extensions, cuts, styling and consultations in Raleigh, NC." />
   <title>Services | EzHairr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
-    }
+    [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
     [data-reveal].revealed { opacity: 1; transform: translateY(0); }
     [data-reveal-delay="1"] { transition-delay: 0.12s; }
     [data-reveal-delay="2"] { transition-delay: 0.24s; }
+
+    .page-hero {
+      padding: 12rem 4rem 5rem;
+      background: var(--cream);
+      text-align: center;
+      border-bottom: 1px solid rgba(107,88,71,0.12);
+    }
+    .page-hero .eyebrow { margin-bottom: 1rem; }
+    .page-hero .heading { font-size: clamp(2.8rem, 5vw, 5rem); max-width: 700px; margin: 0 auto 1.5rem; }
+    .page-hero p { font-size: 13px; opacity: 0.55; max-width: 480px; margin: 0 auto; color: var(--ink); }
+
+    .services-list { padding: 0 4rem 5rem; background: var(--cream); }
+    .service-row {
+      display: grid; grid-template-columns: 120px 1fr;
+      gap: 3rem; padding: 4rem 0;
+      border-bottom: 1px solid rgba(107,88,71,0.12);
+      align-items: start;
+    }
+    .service-row:last-child { border-bottom: none; }
+    .service-row__number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 5rem; font-weight: 300;
+      color: rgba(168,145,122,0.2); line-height: 1;
+    }
+    .service-row__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.2rem; font-weight: 300;
+      color: var(--ink); margin-bottom: 1rem; line-height: 1.2;
+    }
+    .service-row__title em { font-style: italic; color: var(--earth); }
+    .service-row__body {
+      font-size: 13px; line-height: 2;
+      color: var(--ink); opacity: 0.65;
+      margin-bottom: 2rem; max-width: 560px;
+    }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 10rem 2rem 4rem; }
+      .services-list { padding: 0 2rem 4rem; }
+      .service-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .service-row__number { font-size: 3rem; }
+    }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav class="nav scrolled">
-    <a href="index.html" class="nav__logo"><span>Ez</span>Hairr</a>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">
+      <img src="images/logo.png" alt="EzHairr" class="nav__logo-img" />
+    </a>
     <ul class="nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
@@ -41,17 +84,17 @@
     <a href="services.html">Services</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" rel="noopener" style="color:var(--taupe);">Book Now</a>
+    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" rel="noopener" style="color:var(--sand);">Book Now</a>
   </div>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="section__eyebrow">What We Offer</p>
-    <h1 class="section__heading">The Service <em>Menu</em></h1>
-    <p>Every service is a conversation. New clients are always welcome to start with a consultation so we can build a plan that's truly yours.</p>
+    <p class="eyebrow">What I Offer</p>
+    <h1 class="heading">The Service <em>Menu</em></h1>
+    <p>Every service is a conversation. New clients are always welcome to start with a consultation so I can build a plan that's truly yours.</p>
   </div>
 
-  <!-- MARQUEE STRIP -->
+  <!-- MARQUEE -->
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-track">
       <span>Color</span><span class="dot">·</span>
@@ -80,7 +123,7 @@
       <div class="service-row__number">01</div>
       <div>
         <h2 class="service-row__title"><em>Consultation</em></h2>
-        <p class="service-row__body">New color clients are encouraged to book a consultation first. We'll review your hair history, goals, maintenance expectations, and pricing to create a customized color plan that actually fits your life.</p>
+        <p class="service-row__body">New color clients are encouraged to book a consultation first. I'll review your hair history, goals, maintenance expectations, and pricing to create a customized color plan that actually fits your life.</p>
         <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener">Book Now</a>
       </div>
     </div>
@@ -107,7 +150,7 @@
       <div class="service-row__number">04</div>
       <div>
         <h2 class="service-row__title"><em>Classic</em> Color</h2>
-        <p class="service-row__body">From root touch-ups and solid all-over color to gloss refreshes and full color transformations — every service is customized to your hair goals for long-lasting results that truly satisfy.</p>
+        <p class="service-row__body">From root touch-ups and solid all-over color to gloss refreshes and full color transformations, every service is customized to your hair goals for long-lasting results that truly satisfy.</p>
         <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener">Book Now</a>
       </div>
     </div>
@@ -116,7 +159,7 @@
       <div class="service-row__number">05</div>
       <div>
         <h2 class="service-row__title">Extension <em>Services</em></h2>
-        <p class="service-row__body">During your consultation, we'll discuss everything you need to know about extensions — including the best method for your hair, maintenance expectations, and pricing. No surprises, just beautiful results.</p>
+        <p class="service-row__body">During your consultation, I'll go over everything you need to know about extensions, including the best method for your hair, maintenance expectations, and pricing. No surprises, just beautiful results.</p>
         <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener">Book Now</a>
       </div>
     </div>
@@ -125,45 +168,46 @@
       <div class="service-row__number">06</div>
       <div>
         <h2 class="service-row__title">Classic <em>Blowout</em></h2>
-        <p class="service-row__body">A polished, smooth finish that lasts. Whether you want sleek, voluminous, or something in between — your blowout is styled to match your vision.</p>
+        <p class="service-row__body">A polished, smooth finish that lasts. Whether you want sleek, voluminous, or something in between, your blowout is styled to match your vision.</p>
         <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener">Book Now</a>
       </div>
     </div>
 
   </div>
 
-  <!-- BOOKING CTA -->
-  <section class="contact-strip">
-    <p class="section__eyebrow">First Time?</p>
-    <h2 class="section__heading">Start with a <em>Consultation</em></h2>
-    <p>Not sure which service is right for you? A consultation is always the best first step. We'll map out a plan together before any work begins.</p>
-    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener">Request an Appointment</a>
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <p class="eyebrow" style="color:var(--sand);">First Time?</p>
+    <h2 class="heading" style="color:var(--cream);margin-bottom:1rem;">Start with a <em style="color:var(--sand);">Consultation</em></h2>
+    <p>Not sure which service is right for you? A consultation is always the best first step. I'll map out a plan before any work begins.</p>
+    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener" style="background:var(--sand);color:var(--ink);border-color:var(--sand);">Request an Appointment</a>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer">
-      <div>
-        <div class="footer__logo"><span>Ez</span>Hairr</div>
-        <p class="footer__tagline">Private · Bilingual · Intentional</p>
+  <div class="footer-grid">
+    <div>
+      <div class="footer__logo">
+        <img src="images/logo.png" alt="EzHairr" class="footer__logo-img" />
       </div>
-      <div>
-        <p class="footer__heading">Navigate</p>
-        <ul class="footer__links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer__contact">
-        <p class="footer__heading">Get in Touch</p>
-        <p>
-          4040 Barrett Dr, Ste 200 Unit 1<br>
-          Raleigh, NC 27609<br><br>
-          <a href="tel:9194442266">(919) 444-2266</a><br>
-          <a href="mailto:hello@ezhairr.com">hello@ezhairr.com</a>
-        </p>
+      <p class="footer__tagline">Raleigh, NC · By Appointment</p>
+    </div>
+    <div>
+      <p class="footer__head">Navigate</p>
+      <ul class="footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer__contact">
+      <p class="footer__head">Get in Touch</p>
+      <p>
+        4040 Barrett Dr, Ste 200 Unit 1<br>
+        Raleigh, NC 27609<br><br>
+        <a href="tel:9194442266">(919) 444-2266</a><br>
+        <a href="mailto:hello@ezhairr.com">hello@ezhairr.com</a>
+      </p>
       <div style="margin-top:2rem;display:flex;gap:1.5rem;align-items:center;">
         <a href="https://www.instagram.com/ezhairr" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.5rem;color:var(--sand);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-family:'Montserrat',sans-serif;text-decoration:none;opacity:0.8;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -174,14 +218,26 @@
           @ezhairr
         </a>
       </div>
-      </div>
     </div>
-    <div class="footer__bottom">
-      <p>&copy; 2026 EzHairr. All rights reserved.</p>
-      <p>Raleigh, North Carolina</p>
-    </div>
-  </footer>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 EzHairr. All rights reserved.</p>
+    <p>Raleigh, North Carolina</p>
+  </div>
 
   <script src="js/main.js"></script>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
