@@ -43,10 +43,10 @@
     }
     .nav__logo { display: flex; align-items: center; }
     .nav__links { display: flex; gap: 3rem; list-style: none; }
-    .nav__links a { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); opacity: 0.65; transition: opacity var(--transition), color var(--transition); }
+    .nav__links a { font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); opacity: 0.75; transition: opacity var(--transition), color var(--transition); }
     .nav__links a:hover { opacity: 1; color: var(--earth); }
     .nav__cta {
-      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
       border: 1px solid var(--ink); color: var(--ink);
       padding: 0.65rem 1.6rem;
       transition: background var(--transition), color var(--transition), border-color var(--transition);
