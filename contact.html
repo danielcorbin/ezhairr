@@ -3,24 +3,161 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact EzHairr — book your appointment or send us a message. Private hair studio in Raleigh, NC." />
+  <meta name="description" content="Contact EzHairr — book your appointment or send a message. Private hair studio in Raleigh, NC." />
   <title>Contact | EzHairr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
-    }
+    [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
     [data-reveal].revealed { opacity: 1; transform: translateY(0); }
     [data-reveal-delay="1"] { transition-delay: 0.12s; }
+
+    .page-hero {
+      padding: 12rem 4rem 5rem;
+      background: var(--cream);
+      text-align: center;
+      border-bottom: 1px solid rgba(107,88,71,0.12);
+    }
+    .page-hero .eyebrow { margin-bottom: 1rem; }
+    .page-hero .heading { font-size: clamp(2.8rem, 5vw, 4.5rem); max-width: 700px; margin: 0 auto 1.5rem; }
+    .page-hero p { font-size: 13px; opacity: 0.55; max-width: 480px; margin: 0 auto; color: var(--ink); }
+
+    /* CONTACT LAYOUT */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+      background: var(--cream);
+    }
+
+    /* INFO PANEL */
+    .contact-info-panel {
+      padding: 6rem 4rem;
+      background: var(--ivory);
+      border-right: 1px solid rgba(107,88,71,0.1);
+    }
+    .contact-info-panel .eyebrow { margin-bottom: 0.75rem; }
+    .contact-info-panel .heading { margin-bottom: 3rem; }
+
+    .contact-detail { margin-bottom: 2rem; }
+    .contact-detail__label {
+      font-size: 9px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--taupe);
+      margin-bottom: 0.4rem;
+    }
+    .contact-detail__value {
+      font-size: 13px; color: var(--ink); opacity: 0.75; line-height: 1.8;
+    }
+    .contact-detail__value a { color: var(--earth); text-decoration: none; }
+    .contact-detail__value a:hover { color: var(--ink); }
+
+    .contact-social {
+      margin-top: 2.5rem;
+      display: flex; gap: 1.5rem; align-items: center;
+    }
+    .contact-social a {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--earth); text-decoration: none; opacity: 0.8;
+      transition: opacity 0.3s ease, color 0.3s ease;
+    }
+    .contact-social a:hover { opacity: 1; color: var(--ink); }
+
+    /* FORM PANEL */
+    .contact-form-panel {
+      padding: 6rem 4rem;
+      background: var(--cream);
+    }
+    .contact-form-panel .eyebrow { margin-bottom: 0.75rem; }
+    .contact-form-panel .heading { margin-bottom: 2.5rem; }
+
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block; font-size: 9px;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 0.6rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--ivory);
+      border: 1px solid rgba(107,88,71,0.2);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 300;
+      padding: 0.9rem 1.2rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+      appearance: none; border-radius: 0;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--earth); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-submit {
+      width: 100%; padding: 1.1rem 2rem;
+      background: var(--ink); color: var(--cream);
+      border: 1px solid var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; letter-spacing: 0.2em;
+      text-transform: uppercase; cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .form-submit:hover { background: transparent; color: var(--ink); }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(107,88,71,0.2);
+      background: var(--ivory);
+    }
+    .form-success h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem; font-style: italic;
+      font-weight: 300; color: var(--earth);
+      margin-bottom: 0.75rem;
+    }
+    .form-success p { font-size: 13px; opacity: 0.65; color: var(--ink); }
+
+    /* TEXT US BUTTON */
+    .text-us-btn {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 999;
+      display: flex; align-items: center; gap: 0.6rem;
+      background: var(--ink); color: var(--cream);
+      padding: 0.85rem 1.4rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .text-us-btn:hover { background: var(--earth); transform: translateY(-2px); }
+    .text-us-btn svg { flex-shrink: 0; }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 10rem 2rem 4rem; }
+      .contact-wrap { grid-template-columns: 1fr; }
+      .contact-info-panel { padding: 4rem 2rem; border-right: none; border-bottom: 1px solid rgba(107,88,71,0.1); }
+      .contact-form-panel { padding: 4rem 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav class="nav scrolled">
-    <a href="index.html" class="nav__logo"><span>Ez</span>Hairr</a>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">
+      <img src="images/logo.png" alt="EzHairr" class="nav__logo-img" />
+    </a>
     <ul class="nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
@@ -40,65 +177,95 @@
     <a href="services.html">Services</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" rel="noopener" style="color:var(--taupe);">Book Now</a>
+    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" rel="noopener" style="color:var(--sand);">Book Now</a>
   </div>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="section__eyebrow">Let's Connect</p>
-    <h1 class="section__heading">Get in <em>Touch</em></h1>
-    <p>Have a question, or ready to book? Reach out below or request your appointment directly.</p>
+    <p class="eyebrow">Get in Touch</p>
+    <h1 class="heading">Let's <em>Connect</em></h1>
+    <p>Have a question or ready to book? Reach out below, text directly, or request your appointment online.</p>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Book Now</span><span class="dot">·</span>
+      <span>Say Hello</span><span class="dot">·</span>
+      <span>Raleigh, NC</span><span class="dot">·</span>
+      <span>(919) 444-2266</span><span class="dot">·</span>
+      <span>hello@ezhairr.com</span><span class="dot">·</span>
+      <span>By Appointment</span><span class="dot">·</span>
+      <span>Book Now</span><span class="dot">·</span>
+      <span>Say Hello</span><span class="dot">·</span>
+      <span>Raleigh, NC</span><span class="dot">·</span>
+      <span>(919) 444-2266</span><span class="dot">·</span>
+      <span>hello@ezhairr.com</span><span class="dot">·</span>
+      <span>By Appointment</span><span class="dot">·</span>
+    </div>
   </div>
 
   <!-- CONTACT SPLIT -->
-  <div class="contact-page">
-    <div class="contact-info" data-reveal>
-      <p class="section__eyebrow">Studio Info</p>
-      <h2 class="section__heading">Find <em>Us</em></h2>
+  <div class="contact-wrap">
 
-      <div style="margin-top:2.5rem;">
-        <div class="contact-detail">
-          <p class="contact-detail__label">Location</p>
-          <p class="contact-detail__value">
-            4040 Barrett Dr, Ste 200 Unit 1<br>
-            Raleigh, North Carolina 27609
-          </p>
-        </div>
-        <div class="contact-detail">
-          <p class="contact-detail__label">Phone</p>
-          <p class="contact-detail__value">
-            <a href="tel:9194442266">(919) 444-2266</a>
-          </p>
-        </div>
-        <div class="contact-detail">
-          <p class="contact-detail__label">Email</p>
-          <p class="contact-detail__value">
-            <a href="mailto:hello@ezhairr.com">hello@ezhairr.com</a>
-          </p>
-        </div>
-        <div class="contact-detail">
-          <p class="contact-detail__label">Hours</p>
-          <p class="contact-detail__value">
-            By appointment only.<br>
-            New clients start with a consultation.
-          </p>
-        </div>
-        <div class="contact-detail">
-          <p class="contact-detail__label">Languages</p>
-          <p class="contact-detail__value">English &amp; Spanish</p>
-        </div>
+    <!-- INFO PANEL -->
+    <div class="contact-info-panel" data-reveal>
+      <p class="eyebrow">Studio Info</p>
+      <h2 class="heading">Find <em>Me</em></h2>
+
+      <div class="contact-detail">
+        <p class="contact-detail__label">Location</p>
+        <p class="contact-detail__value">
+          4040 Barrett Dr, Ste 200 Unit 1<br>
+          Raleigh, North Carolina 27609
+        </p>
+      </div>
+      <div class="contact-detail">
+        <p class="contact-detail__label">Phone / Text</p>
+        <p class="contact-detail__value">
+          <a href="tel:9194442266">(919) 444-2266</a>
+        </p>
+      </div>
+      <div class="contact-detail">
+        <p class="contact-detail__label">Email</p>
+        <p class="contact-detail__value">
+          <a href="mailto:hello@ezhairr.com">hello@ezhairr.com</a>
+        </p>
+      </div>
+      <div class="contact-detail">
+        <p class="contact-detail__label">Hours</p>
+        <p class="contact-detail__value">
+          By appointment only.<br>
+          New clients start with a consultation.
+        </p>
+      </div>
+      <div class="contact-detail">
+        <p class="contact-detail__label">Languages</p>
+        <p class="contact-detail__value">English &amp; Spanish</p>
       </div>
 
-      <div style="margin-top:3rem;">
+      <div style="margin-top:2.5rem;">
         <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener">Book an Appointment</a>
+      </div>
+
+      <div class="contact-social">
+        <a href="https://www.instagram.com/ezhairr" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @ezhairr
+        </a>
+        <a href="https://www.tiktok.com/@ezhairr" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          @ezhairr
+        </a>
       </div>
     </div>
 
-    <div class="contact-form" data-reveal data-reveal-delay="1">
-      <p class="section__eyebrow">Send a Message</p>
-      <h2 class="section__heading">Say <em>Hello</em></h2>
+    <!-- FORM PANEL -->
+    <div class="contact-form-panel" data-reveal data-reveal-delay="1">
+      <p class="eyebrow">Send a Message</p>
+      <h2 class="heading">Say <em>Hello</em></h2>
 
-      <form id="contact-form" style="margin-top:2.5rem;" novalidate>
+      <form id="contact-form" action="https://formspree.io/f/hello@ezhairr.com" method="POST" novalidate>
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First Name</label>
@@ -122,7 +289,8 @@
           <select id="service" name="service">
             <option value="" disabled selected>Select a service</option>
             <option value="consultation">Consultation</option>
-            <option value="color">Color (Effortless or Classic)</option>
+            <option value="effortless-color">Effortless Color</option>
+            <option value="classic-color">Classic Color</option>
             <option value="extensions">Extension Services</option>
             <option value="cut-styling">Haircutting + Styling</option>
             <option value="blowout">Classic Blowout</option>
@@ -131,37 +299,52 @@
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us a little about your hair goals or any questions you have..."></textarea>
+          <textarea id="message" name="message" placeholder="Tell me a little about your hair goals or any questions you have..."></textarea>
         </div>
-        <button type="submit" class="btn-primary" style="border:none;cursor:pointer;width:100%;padding:1.1rem 2rem;">Send Message</button>
+        <button type="submit" class="form-submit">Send Message</button>
       </form>
+
+      <div class="form-success" id="form-success">
+        <h3>Message Received</h3>
+        <p>Thanks for reaching out. I'll be in touch shortly.</p>
+      </div>
     </div>
+
   </div>
 
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <p class="eyebrow" style="color:var(--sand);">Ready to Begin?</p>
+    <h2 class="heading" style="color:var(--cream);margin-bottom:1rem;">Book Your <em style="color:var(--sand);">Experience</em></h2>
+    <p>New clients always start with a consultation. It's where the magic begins.</p>
+    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener" style="background:var(--sand);color:var(--ink);border-color:var(--sand);">Request an Appointment</a>
+  </section>
+
   <!-- FOOTER -->
-  <footer>
-    <div class="footer">
-      <div>
-        <div class="footer__logo"><span>Ez</span>Hairr</div>
-        <p class="footer__tagline">Private · Bilingual · Intentional</p>
+  <div class="footer-grid">
+    <div>
+      <div class="footer__logo">
+        <img src="images/logo.png" alt="EzHairr" class="footer__logo-img" />
       </div>
-      <div>
-        <p class="footer__heading">Navigate</p>
-        <ul class="footer__links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer__contact">
-        <p class="footer__heading">Get in Touch</p>
-        <p>
-          4040 Barrett Dr, Ste 200 Unit 1<br>
-          Raleigh, NC 27609<br><br>
-          <a href="tel:9194442266">(919) 444-2266</a><br>
-          <a href="mailto:hello@ezhairr.com">hello@ezhairr.com</a>
-        </p>
+      <p class="footer__tagline">Raleigh, NC · By Appointment</p>
+    </div>
+    <div>
+      <p class="footer__head">Navigate</p>
+      <ul class="footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer__contact">
+      <p class="footer__head">Get in Touch</p>
+      <p>
+        4040 Barrett Dr, Ste 200 Unit 1<br>
+        Raleigh, NC 27609<br><br>
+        <a href="tel:9194442266">(919) 444-2266</a><br>
+        <a href="mailto:hello@ezhairr.com">hello@ezhairr.com</a>
+      </p>
       <div style="margin-top:2rem;display:flex;gap:1.5rem;align-items:center;">
         <a href="https://www.instagram.com/ezhairr" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.5rem;color:var(--sand);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-family:'Montserrat',sans-serif;text-decoration:none;opacity:0.8;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -172,14 +355,52 @@
           @ezhairr
         </a>
       </div>
-      </div>
     </div>
-    <div class="footer__bottom">
-      <p>&copy; 2026 EzHairr. All rights reserved.</p>
-      <p>Raleigh, North Carolina</p>
-    </div>
-  </footer>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 EzHairr. All rights reserved.</p>
+    <p>Raleigh, North Carolina</p>
+  </div>
+
+  <!-- TEXT US BUTTON -->
+  <a href="sms:9194442266" class="text-us-btn" aria-label="Text us">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    Text Us
+  </a>
 
   <script src="js/main.js"></script>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Form submission
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch('https://formspree.io/f/xpwzgkpw', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
