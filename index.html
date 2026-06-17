@@ -15,6 +15,81 @@
     [data-reveal].revealed { opacity: 1; transform: translateY(0); }
     [data-reveal-delay="1"] { transition-delay: 0.12s; }
     [data-reveal-delay="2"] { transition-delay: 0.24s; }
+
+    /* ACCORDION */
+    .service-card__accordion {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,20,16,0.96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 10;
+    }
+    .service-card__accordion.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .service-card__accordion-inner {
+      text-align: left;
+      color: var(--cream);
+    }
+    .service-card__accordion-label {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--sand);
+      margin-bottom: 1rem;
+    }
+    .service-card__accordion-inner p {
+      font-size: 12px;
+      line-height: 1.9;
+      opacity: 0.8;
+      margin-bottom: 0.75rem;
+    }
+    .service-card__accordion-btn {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid var(--sand);
+      color: var(--sand);
+      padding: 0.7rem 1.5rem;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .service-card__accordion-btn:hover {
+      background: var(--sand);
+      color: var(--dark);
+    }
+    .service-card__link {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+    /* Close button */
+    .accordion-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      color: var(--sand);
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+      z-index: 11;
+    }
+    .accordion-close:hover { opacity: 1; }
   </style>
 </head>
 <body>
@@ -46,7 +121,7 @@
       <p class="hero__body">A private experience built around your hair, not a template. Serving clients in English and Spanish, every appointment is curated to how you live, your texture, and your goals.</p>
       <div class="hero__actions">
         <a href="#" class="btn-primary">Reserve a Session</a>
-        <a href="#services" class="btn-ghost">View Services</a>
+        <a href="services.html" class="btn-ghost">View Services</a>
       </div>
       <div class="hero__scroll">Scroll</div>
     </div>
@@ -107,7 +182,7 @@
         <p class="service-card__label">Service</p>
         <h3 class="service-card__title">Effortless Color</h3>
         <p class="service-card__desc">Soft balayage and foilayage creating dimensional, lived-in color that's easy to maintain.</p>
-        <span class="service-card__link">Learn More</span>
+        <a href="services.html" class="service-card__link">Learn More</a>
       </div>
     </div>
     <div class="service-card">
@@ -116,7 +191,7 @@
         <p class="service-card__label">Service</p>
         <h3 class="service-card__title">Extension Services</h3>
         <p class="service-card__desc">Custom extensions tailored to your hair texture, lifestyle, and goals. Discussed during your consultation.</p>
-        <span class="service-card__link">Learn More</span>
+        <a href="services.html" class="service-card__link">Learn More</a>
       </div>
     </div>
     <div class="service-card">
@@ -125,12 +200,12 @@
         <p class="service-card__label">Service</p>
         <h3 class="service-card__title">Cuts + Styling</h3>
         <p class="service-card__desc">Every cut is personalized to fit how you actually live in your hair, your routine, your style, your texture.</p>
-        <span class="service-card__link">Learn More</span>
+        <a href="services.html" class="service-card__link">Learn More</a>
       </div>
     </div>
   </div>
   <div class="section section--mid" style="padding-top:3rem;text-align:center;">
-    <a href="#" class="btn-primary">View All Services</a>
+    <a href="services.html" class="btn-primary">View All Services</a>
   </div>
 
   <!-- TESTIMONIALS -->
@@ -175,7 +250,23 @@
     <h2 class="heading" style="margin-bottom:1rem;">Ready to Create Something <em>Beautiful?</em></h2>
     <p>New to EzHairr? Start with a consultation so I can review your hair history, goals, and build a plan together.</p>
     <a href="#" class="btn-primary">Book Your Appointment</a>
-  </section>
+  
+  <div style="display:flex;justify-content:center;gap:2rem;margin-top:2.5rem;align-items:center;">
+    <a href="https://www.instagram.com/ezhairr" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;text-decoration:none;color:var(--cream);opacity:0.75;transition:opacity 0.3s ease;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.75">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;">@ezhairr</span>
+    </a>
+    <div style="width:1px;height:40px;background:rgba(212,196,168,0.3);"></div>
+    <a href="https://www.tiktok.com/@ezhairr" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;text-decoration:none;color:var(--cream);opacity:0.75;transition:opacity 0.3s ease;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.75">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+      </svg>
+      <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;">@ezhairr</span>
+    </a>
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer>
@@ -225,6 +316,11 @@
       });
     }, { threshold: 0.12 });
     revealEls.forEach(el => observer.observe(el));
+
+  function toggleCard(id) {
+    const accordion = document.getElementById('accordion-' + id);
+    accordion.classList.toggle('open');
+  }
   </script>
 
 </body>
