@@ -533,6 +533,9 @@
 
       <p style="font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.9;color:var(--ink);opacity:0.6;margin-bottom:2rem;padding:1.2rem 1.5rem;border-left:2px solid var(--taupe);background:var(--ivory);">Already a client? Skip the form and <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" style="color:var(--earth);text-decoration:underline;">book directly here.</a></p>
       <form id="contact-form" novalidate>
+        <input type="hidden" name="access_key" value="0a967ddf-5397-491b-984d-6dda5e58e24f" />
+        <input type="hidden" name="subject" value="New Consultation Request - EzHairr" />
+        <input type="hidden" name="from_name" value="EzHairr Website" />
         <div class="f-row">
           <div class="f-group">
             <label for="fname">First Name</label>
@@ -570,8 +573,8 @@
         </div>
         <div class="f-group">
           <label for="hair-photo">Photo of Your Natural Hair (optional)</label>
-          <input type="file" id="hair-photo" name="hair-photo" accept="image/*" style="padding:0.6rem 0;border:none;background:transparent;color:var(--ink);font-size:12px;opacity:0.7;" />
-          <p style="font-size:10px;letter-spacing:0.05em;color:var(--ink);opacity:0.45;margin-top:0.4rem;">First-time clients are encouraged to share a photo of their natural hair so I can prepare for your appointment.</p>
+          <input type="file" id="hair-photo" name="hair_photo" accept="image/*" style="padding:0.6rem 0;border:none;background:transparent;color:var(--ink);font-size:12px;opacity:0.7;width:100%;" />
+          <p style="font-size:10px;letter-spacing:0.05em;color:var(--ink);opacity:0.45;margin-top:0.4rem;line-height:1.7;">First-time clients are encouraged to share a photo of their natural hair so Ezequiel can prepare for your consultation.</p>
         </div>
         <button type="submit" class="f-submit">Send Message</button>
       </form>
@@ -668,10 +671,9 @@
       btn.disabled = true;
       var data = new FormData(form);
       try {
-        var res = await fetch('https://formspree.io/f/mgobbrlo', {
+        var res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
+          body: data
         });
         if (res.ok) {
           form.reset();
