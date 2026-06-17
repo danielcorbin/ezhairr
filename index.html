@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="EzHairr — Private, bilingual luxury hair studio in Raleigh, NC. Expert color, extensions, cuts and styling by appointment." />
+  <meta name="description" content="EzHairr Private, bilingual luxury hair studio in Raleigh, NC. Expert color, extensions, cuts and styling by appointment." />
   <meta property="og:title" content="EzHairr | Luxury Hair Studio, Raleigh NC" />
   <title>EzHairr | Luxury Hair Studio, Raleigh NC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <style>
+
+    .hero-slideshow { position: absolute; inset: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center center;
+      opacity: 0; transition: opacity 1.2s ease;
+    }
+    .hero-slide.active { opacity: 1; }
     [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+
+    .hero-slideshow { position: absolute; inset: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center center;
+      opacity: 0; transition: opacity 1.2s ease;
+    }
+    .hero-slide.active { opacity: 1; }
     [data-reveal].revealed { opacity: 1; transform: translateY(0); }
     [data-reveal-delay="1"] { transition-delay: 0.12s; }
     [data-reveal-delay="2"] { transition-delay: 0.24s; }
@@ -101,8 +117,10 @@
     <ul class="nav__links">
       <li><a href="#">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="about.html">Meet Ez</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="haircare.html">Hair Care</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
     </ul>
     <a href="#" class="nav__cta">Book Now</a>
   </nav>
@@ -278,7 +296,7 @@
   <!-- CTA STRIP -->
   <section class="cta-strip" id="contact">
     <p class="eyebrow">Ready When You Are</p>
-    <h2 class="heading" style="margin-bottom:1rem;">Ready to create something <em>beautiful</em>?</h2>
+    <h2 class="heading" style="margin-bottom:1rem;">Ready to create something <em>beautiful?</em></h2>
     <p>New to EzHairr? Start with a consultation so I can review your hair history, goals, and build a plan together.</p>
     <a href="#" class="btn-primary">Book Your Appointment</a>
   
@@ -304,14 +322,14 @@
     <div class="footer-grid">
       <div>
         <div class="footer__logo"><img src="images/logo.png" alt="EzHairr" class="footer__logo-img" /></div>
-        <p class="footer__tagline">Raleigh, NC · By Appointment</p>
+        <p class="footer__tagline">Raleigh, NC</p>
       </div>
       <div>
         <p class="footer__head">Navigate</p>
         <ul class="footer__links">
           <li><a href="#">Home</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html">Meet Ez</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -352,6 +370,15 @@
     const accordion = document.getElementById('accordion-' + id);
     accordion.classList.toggle('open');
   }
+
+  // Hero slideshow
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
   </script>
 
 </body>
