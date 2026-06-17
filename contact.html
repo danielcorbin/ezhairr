@@ -588,7 +588,7 @@
     <p class="eyebrow">Ready to Begin?</p>
     <h2 class="heading">Book Your <em>Experience</em></h2>
     <p>New clients always start with a consultation. It's where the magic begins.</p>
-    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="cta-btn" target="_blank" rel="noopener">Request an Appointment</a>
+    <a href="contact.html" class="cta-btn">Request an Appointment</a>
   </section>
 
   <!-- FOOTER -->
@@ -671,8 +671,21 @@
           headers: { 'Accept': 'application/json' }
         });
         if (res.ok) {
-          form.style.display = 'none';
-          successBox.style.display = 'block';
+          form.reset();
+          btn.textContent = 'Ez will respond within 24 hours';
+          btn.style.background = 'transparent';
+          btn.style.color = 'var(--earth)';
+          btn.style.borderColor = 'var(--earth)';
+          btn.style.letterSpacing = '0.1em';
+          btn.disabled = true;
+          setTimeout(() => {
+            btn.textContent = 'Send Message';
+            btn.style.background = '';
+            btn.style.color = '';
+            btn.style.borderColor = '';
+            btn.style.letterSpacing = '';
+            btn.disabled = false;
+          }, 7000);
         } else {
           btn.textContent = 'Try Again';
           btn.disabled = false;
