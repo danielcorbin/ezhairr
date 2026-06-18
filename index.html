@@ -19,6 +19,30 @@
       opacity: 0; transition: opacity 1.2s ease;
     }
     .hero-slide.active { opacity: 1; }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1.5rem;
+    }
+    .lang-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sand);
+      opacity: 0.6;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      transition: opacity 0.2s ease;
+    }
+    .lang-btn:hover, .lang-btn.active { opacity: 1; color: var(--sand); }
+    .lang-btn.active { border-bottom: 1px solid var(--sand); }
+    .lang-divider { color: var(--sand); opacity: 0.3; font-size: 9px; }
+
     [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
 
     .hero-slideshow { position: absolute; inset: 0; }
@@ -116,11 +140,11 @@
     <a href="#" class="nav__logo"><img src="images/logo.png" alt="EzHairr" class="nav__logo-img" /></a>
     <ul class="nav__links">
       <li><a href="#">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">Meet Ez</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="haircare.html">Hair Care</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="about.html" data-i18n="nav_meet">Meet Ez</a></li>
+      <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+      <li><a href="haircare.html" data-i18n="nav_haircare">Hair Care</a></li>
+      <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
     </ul>
     <a href="#" class="nav__cta">Book Now</a>
   </nav>
@@ -136,15 +160,15 @@
       </div>
     </div>
     <div class="hero__content">
-      <p class="hero__eyebrow">Private Studio · Raleigh, NC</p>
+      <p class="hero__eyebrow" data-i18n="hero_eyebrow">Private Studio · Raleigh, NC</p>
       <h1 class="hero__headline">
-        Where Hair Meets<br>
-        <em>INTENTION</em>
+        <span data-i18n="hero_h1_1">Where Hair Meets</span><br>
+        <em data-i18n="hero_h1_2">INTENTION</em>
       </h1>
       <p class="hero__body">A private experience built around your hair, not a template. Serving clients in English and Spanish, every appointment is curated to how you live, your texture, and your goals.</p>
       <div class="hero__actions">
-        <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener">Reserve a Session</a>
-        <a href="services.html" class="btn-ghost">View Services</a>
+        <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener" data-i18n="hero_btn1">Reserve a Session</a>
+        <a href="services.html" class="btn-ghost" data-i18n="hero_btn2">View Services</a>
       </div>
       <div class="hero__scroll">Scroll</div>
     </div>
@@ -175,18 +199,18 @@
     <div class="pillars">
       <div class="pillar" data-reveal>
         <div class="pillar__number">01</div>
-        <div class="pillar__title">Private</div>
-        <p class="pillar__body">A one-on-one experience in a quiet, focused space. No distractions. Just you, your hair, and undivided attention.</p>
+        <div class="pillar__title" data-i18n="pillar1_title">Private</div>
+        <p class="pillar__body" data-i18n="pillar1_body">A one-on-one experience in a quiet, focused space. No distractions. Just you, your hair, and undivided attention.</p>
       </div>
       <div class="pillar" data-reveal data-reveal-delay="1">
         <div class="pillar__number">02</div>
-        <div class="pillar__title">Intentional</div>
-        <p class="pillar__body">Every technique, product, and decision is made with purpose. For results that last and hair that feels as good as it looks.</p>
+        <div class="pillar__title" data-i18n="pillar2_title">Intentional</div>
+        <p class="pillar__body" data-i18n="pillar2_body">Every technique, product, and decision is made with purpose. For results that last and hair that feels as good as it looks.</p>
       </div>
       <div class="pillar" data-reveal data-reveal-delay="2">
         <div class="pillar__number">03</div>
-        <div class="pillar__title">Yours</div>
-        <p class="pillar__body">No templates, no shortcuts. Every appointment is shaped around your texture, your lifestyle, and what you actually want.</p>
+        <div class="pillar__title" data-i18n="pillar3_title">Yours</div>
+        <p class="pillar__body" data-i18n="pillar3_body">No templates, no shortcuts. Every appointment is shaped around your texture, your lifestyle, and what you actually want.</p>
       </div>
     </div>
   </div>
@@ -194,7 +218,7 @@
   <!-- SERVICES -->
   <section class="section section--mid" id="services">
     <div class="services-intro" data-reveal>
-      <p class="eyebrow">What I Offer</p>
+      <p class="eyebrow" data-i18n="services_eyebrow">What I Offer</p>
       <h2 class="heading">Curated Services,<br><em>Crafted for You</em></h2>
     </div>
   </section>
@@ -259,7 +283,7 @@
 
   </div>
   <div class="section section--mid" style="padding-top:3rem;text-align:center;">
-    <a href="services.html" class="btn-primary">View All Services</a>
+    <a href="services.html" class="btn-primary" data-i18n="view_all">View All Services</a>
   </div>
 
   <!-- TESTIMONIALS -->
@@ -291,21 +315,21 @@
       <img src="images/about.jpg" alt="Ezequiel - EzHairr stylist" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
     </div>
     <div class="about-split__content">
-      <p class="eyebrow">Meet the Artist</p>
+      <p class="eyebrow" data-i18n="about_eyebrow">Meet the Artist</p>
       <h2 class="heading" style="margin-bottom:1.5rem;">Hair is more than<br><em>a service.</em></h2>
       <p class="about-split__body">With experience in color, extensions, and precision cutting, I bring both technical mastery and a deeply personal touch to every appointment. Serving clients in English and Spanish, my private studio was built on the belief that luxury should feel accessible, intentional, and uniquely yours.</p>
-      <a href="about.html" class="btn-ghost">Full Story</a>
+      <a href="about.html" class="btn-ghost" data-i18n="about_btn">Full Story</a>
     </div>
   </div>
 
   <!-- CTA STRIP -->
   <section class="cta-strip" id="contact">
-    <p class="eyebrow">Ready When You Are</p>
+    <p class="eyebrow" data-i18n="cta_eyebrow">Ready When You Are</p>
     <h2 class="heading" style="margin-bottom:1rem;">Ready to create something <em>beautiful?</em></h2>
     <p>New to EzHairr? Start with a consultation so I can review your hair history, goals, and build a plan together.</p>
     <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:0.5rem;">
-        <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener">Book an Appointment</a>
-        <a href="contact.html" class="btn-primary" style="background:transparent;color:var(--sand);border-color:var(--sand);">New Client? Request a Consultation</a>
+        <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="btn-primary" target="_blank" rel="noopener" data-i18n="cta_btn1">Book an Appointment</a>
+        <a href="contact.html" class="btn-primary" style="background:transparent;color:var(--sand);border-color:var(--sand);" data-i18n="cta_btn2">New Client? Request a Consultation</a>
       </div>
   
   <div style="display:flex;justify-content:center;gap:2rem;margin-top:2.5rem;align-items:center;">
@@ -336,9 +360,9 @@
         <p class="footer__head">Navigate</p>
         <ul class="footer__links">
           <li><a href="#">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">Meet Ez</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+          <li><a href="about.html" data-i18n="nav_meet">Meet Ez</a></li>
+          <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer__contact">
@@ -387,6 +411,33 @@
     current = (current + 1) % slides.length;
     slides[current].classList.add('active');
   }, 4000);
+
+  // i18n
+  var translations = {"en": {"nav_home": "Home", "nav_services": "Services", "nav_meet": "Meet Ez", "nav_contact": "Contact", "nav_haircare": "Hair Care", "nav_gallery": "Gallery", "nav_book": "Book Now", "hero_eyebrow": "Private Studio · Raleigh, NC", "hero_h1_1": "Where Hair Meets", "hero_h1_2": "INTENTION", "hero_body": "A private experience built around your hair, not a template. Serving clients in English and Spanish, every appointment is curated to how you live, your texture, and your goals.", "hero_btn1": "Reserve a Session", "hero_btn2": "View Services", "hero_scroll": "Scroll", "pillar1_title": "Private", "pillar1_body": "A one-on-one experience in a quiet, focused space. No distractions. Just you, your hair, and undivided attention.", "pillar2_title": "Intentional", "pillar2_body": "Every technique, product, and decision is made with purpose. For results that last and hair that feels as good as it looks.", "pillar3_title": "Yours", "pillar3_body": "No templates, no shortcuts. Every appointment is shaped around your texture, your lifestyle, and what you actually want.", "services_eyebrow": "What I Offer", "services_heading1": "Curated Services,", "services_heading2": "Crafted for You", "card1_label": "Service", "card1_title": "Effortless Color", "card1_desc": "Soft balayage and foilayage creating dimensional, lived-in color that's easy to maintain.", "card2_label": "Service", "card2_title": "Cuts + Styling", "card2_desc": "Personalized to fit how you actually live in your hair: your texture, your routine, your lifestyle.", "card3_label": "Service", "card3_title": "Extension Services", "card3_desc": "Custom extensions tailored to your texture, lifestyle, and goals. Length, volume, or both. Done in a way that looks and feels completely natural.", "learn_more": "Learn More", "view_all": "View All Services", "testimonials_eyebrow": "Client Love", "testimonials_heading1": "What My Clients", "testimonials_heading2": "Are Saying", "t1_quote": "I have never felt so seen in a salon. Ezequiel listened to exactly what I wanted and delivered hair I am obsessed with. I won't go anywhere else.", "t1_author": "Maria L.", "t2_quote": "The private setting made all the difference. It was relaxing, personal, and my color came out absolutely stunning. Worth every penny.", "t2_author": "Ashley R.", "t3_quote": "Being able to speak in Spanish during my appointment made the whole experience so comfortable. Exceptional work and exceptional care.", "t3_author": "Carmen V.", "about_eyebrow": "Meet the Artist", "about_heading1": "Hair is more than", "about_heading2": "a service.", "about_body": "With experience in color, extensions, and precision cutting, I bring both technical mastery and a deeply personal touch to every appointment. Serving clients in English and Spanish, my private studio was built on the belief that luxury should feel accessible, intentional, and uniquely yours.", "about_btn": "Full Story", "cta_eyebrow": "Ready When You Are", "cta_heading1": "Ready to create something", "cta_heading2": "beautiful?", "cta_body": "New to EzHairr? Start with a consultation so I can review your hair history, goals, and build a plan together.", "cta_btn1": "Book an Appointment", "cta_btn2": "New Client? Request a Consultation", "footer_tagline": "Raleigh, NC", "footer_nav": "Navigate", "footer_contact": "Get in Touch"}, "es": {"nav_home": "Inicio", "nav_services": "Servicios", "nav_meet": "Conoce a Ez", "nav_contact": "Contacto", "nav_haircare": "Cuidado del Cabello", "nav_gallery": "Galería", "nav_book": "Reservar", "hero_eyebrow": "Estudio Privado · Raleigh, NC", "hero_h1_1": "Donde el Cabello", "hero_h1_2": "INTENCIÓN", "hero_body": "Una experiencia privada construida alrededor de tu cabello, no de una plantilla. Atendiendo clientes en español e inglés, cada cita es personalizada según tu estilo de vida, tu textura y tus metas.", "hero_btn1": "Reservar una Sesión", "hero_btn2": "Ver Servicios", "hero_scroll": "Deslizar", "pillar1_title": "Privado", "pillar1_body": "Una experiencia uno a uno en un espacio tranquilo y enfocado. Sin distracciones. Solo tú, tu cabello y atención exclusiva.", "pillar2_title": "Intencional", "pillar2_body": "Cada técnica, producto y decisión se toma con propósito. Para resultados duraderos y un cabello que se siente tan bien como se ve.", "pillar3_title": "Tuyo", "pillar3_body": "Sin plantillas ni atajos. Cada cita se adapta a tu textura, tu estilo de vida y lo que realmente quieres.", "services_eyebrow": "Lo Que Ofrezco", "services_heading1": "Servicios con Cuidado,", "services_heading2": "Creados para Ti", "card1_label": "Servicio", "card1_title": "Color Sin Esfuerzo", "card1_desc": "Balayage y foilayage suave que crea un color dimensional y natural, fácil de mantener.", "card2_label": "Servicio", "card2_title": "Cortes y Peinado", "card2_desc": "Personalizado para adaptarse a cómo realmente vives con tu cabello: tu textura, tu rutina, tu estilo de vida.", "card3_label": "Servicio", "card3_title": "Extensiones", "card3_desc": "Extensiones personalizadas según tu textura, estilo de vida y metas. Largo, volumen o ambos. De una manera que se ve y se siente completamente natural.", "learn_more": "Ver Más", "view_all": "Ver Todos los Servicios", "testimonials_eyebrow": "Opiniones de Clientes", "testimonials_heading1": "Lo Que Dicen", "testimonials_heading2": "Mis Clientes", "t1_quote": "Nunca me había sentido tan vista en un salón. Ezequiel escuchó exactamente lo que quería y logró el cabello con el que estoy obsesionada. No iré a ningún otro lugar.", "t1_author": "Maria L.", "t2_quote": "El ambiente privado marcó toda la diferencia. Fue relajante, personal, y mi color quedó absolutamente espectacular. Vale cada centavo.", "t2_author": "Ashley R.", "t3_quote": "Poder hablar en español durante mi cita hizo que toda la experiencia fuera muy cómoda. Un trabajo excepcional y un trato excepcional.", "t3_author": "Carmen V.", "about_eyebrow": "Conoce al Artista", "about_heading1": "El cabello es más que", "about_heading2": "un servicio.", "about_body": "Con experiencia en color, extensiones y corte de precisión, aporto tanto dominio técnico como un toque profundamente personal a cada cita. Atendiendo clientes en español e inglés, mi estudio privado se construyó sobre la creencia de que el lujo debe sentirse accesible, intencional y únicamente tuyo.", "about_btn": "Mi Historia", "cta_eyebrow": "Listo Cuando Tú lo Estés", "cta_heading1": "¿Listo para crear algo", "cta_heading2": "hermoso?", "cta_body": "¿Nuevo en EzHairr? Comienza con una consulta para que pueda revisar tu historial de cabello, tus metas y construir un plan juntos.", "cta_btn1": "Reservar una Cita", "cta_btn2": "¿Nuevo Cliente? Solicitar Consulta", "footer_tagline": "Raleigh, NC", "footer_nav": "Navegar", "footer_contact": "Contáctanos"}, "pt": {"nav_home": "Início", "nav_services": "Serviços", "nav_meet": "Conheça o Ez", "nav_contact": "Contato", "nav_haircare": "Cuidado do Cabelo", "nav_gallery": "Galeria", "nav_book": "Agendar", "hero_eyebrow": "Estúdio Privado · Raleigh, NC", "hero_h1_1": "Onde o Cabelo Encontra", "hero_h1_2": "INTENÇÃO", "hero_body": "Uma experiência privada construída em torno do seu cabelo, não de um modelo. Atendendo clientes em português, espanhol e inglês, cada agendamento é personalizado para o seu estilo de vida, sua textura e seus objetivos.", "hero_btn1": "Reservar uma Sessão", "hero_btn2": "Ver Serviços", "hero_scroll": "Rolar", "pillar1_title": "Privado", "pillar1_body": "Uma experiência individual em um espaço tranquilo e focado. Sem distrações. Apenas você, seu cabelo e atenção total.", "pillar2_title": "Intencional", "pillar2_body": "Cada técnica, produto e decisão é tomada com propósito. Para resultados duradouros e um cabelo que se sente tão bem quanto parece.", "pillar3_title": "Seu", "pillar3_body": "Sem modelos, sem atalhos. Cada agendamento é moldado em torno da sua textura, seu estilo de vida e o que você realmente quer.", "services_eyebrow": "O Que Ofereço", "services_heading1": "Serviços Personalizados,", "services_heading2": "Criados para Você", "card1_label": "Serviço", "card1_title": "Cor Sem Esforço", "card1_desc": "Balayage e foilayage suave criando cor dimensional e natural, fácil de manter.", "card2_label": "Serviço", "card2_title": "Cortes e Penteado", "card2_desc": "Personalizado para se adaptar ao seu cabelo: sua textura, sua rotina, seu estilo de vida.", "card3_label": "Serviço", "card3_title": "Extensões", "card3_desc": "Extensões personalizadas para sua textura, estilo de vida e objetivos. Comprimento, volume ou ambos. De um jeito que parece e se sente completamente natural.", "learn_more": "Ver Mais", "view_all": "Ver Todos os Serviços", "testimonials_eyebrow": "Opinião dos Clientes", "testimonials_heading1": "O Que Meus Clientes", "testimonials_heading2": "Estão Dizendo", "t1_quote": "Nunca me senti tão vista em um salão. Ezequiel ouviu exatamente o que eu queria e entregou o cabelo com o qual estou obcecada. Não vou a lugar nenhum mais.", "t1_author": "Maria L.", "t2_quote": "O ambiente privado fez toda a diferença. Foi relaxante, pessoal, e minha cor ficou absolutamente deslumbrante. Vale cada centavo.", "t2_author": "Ashley R.", "t3_quote": "Poder falar em espanhol durante o meu agendamento tornou toda a experiência muito confortável. Trabalho excepcional e cuidado excepcional.", "t3_author": "Carmen V.", "about_eyebrow": "Conheça o Artista", "about_heading1": "O cabelo é mais do que", "about_heading2": "um serviço.", "about_body": "Com experiência em cor, extensões e corte de precisão, trago tanto maestria técnica quanto um toque profundamente pessoal para cada agendamento. Atendendo clientes em português, espanhol e inglês, meu estúdio privado foi construído com a crença de que o luxo deve ser acessível, intencional e exclusivamente seu.", "about_btn": "Minha História", "cta_eyebrow": "Pronto Quando Você Estiver", "cta_heading1": "Pronto para criar algo", "cta_heading2": "bonito?", "cta_body": "Novo no EzHairr? Comece com uma consulta para que eu possa revisar seu histórico de cabelo, objetivos e construir um plano juntos.", "cta_btn1": "Agendar uma Consulta", "cta_btn2": "Novo Cliente? Solicitar Consulta", "footer_tagline": "Raleigh, NC", "footer_nav": "Navegar", "footer_contact": "Entre em Contato"}};
+  var currentLang = localStorage.getItem('ezhairr_lang') || 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('ezhairr_lang', lang);
+    applyTranslations();
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+    // Update html lang attribute
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang === 'es' ? 'es-419' : 'en';
+  }
+
+  function applyTranslations() {
+    var t = translations[currentLang];
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (t[key]) el.textContent = t[key];
+    });
+  }
+
+  // Apply on load
+  setLang(currentLang);
   </script>
 
 </body>
