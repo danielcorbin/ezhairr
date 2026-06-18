@@ -532,11 +532,9 @@
       <h2 class="heading">Let's get <em>started</em></h2>
 
       <p style="font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.9;color:var(--ink);opacity:0.6;margin-bottom:2rem;padding:1.2rem 1.5rem;border-left:2px solid var(--taupe);background:var(--ivory);">Already a client? Skip the form and <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" style="color:var(--earth);text-decoration:underline;">book directly here.</a></p>
-      <form id="contact-form" novalidate>
-        <input type="hidden" name="access_key" value="0a967ddf-5397-491b-984d-6dda5e58e24f" />
-        <input type="hidden" name="subject" value="New Consultation Request - EzHairr" />
-        <input type="hidden" name="from_name" value="EzHairr Website" />
-        <input type="checkbox" name="botcheck" style="display:none;" />
+      <form id="contact-form" name="consultation-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="consultation-request" />
+        <input type="hidden" name="bot-field" style="display:none;" />
         <div class="f-row">
           <div class="f-group">
             <label for="fname">First Name</label>
@@ -683,7 +681,7 @@
     }, { threshold: 0.12 });
     revealEls.forEach(function(el) { observer.observe(el); });
 
-    // Contact form
+    // Contact form — Netlify
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       var form = this;
@@ -693,15 +691,14 @@
       btn.disabled = true;
       var data = new FormData(form);
       try {
-        var res = await fetch('https://api.web3forms.com/submit', {
+        var res = await fetch('/', {
           method: 'POST',
-          body: data
+          headers: { 'Accept': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString()
         });
-        var json = await res.json();
-        if (res.ok && json.success) {
-          // Reset without page jump
+        if (res.ok) {
           Array.from(form.elements).forEach(function(el) {
-            if (el.type !== 'hidden' && el.type !== 'checkbox') {
+            if (el.type !== 'hidden') {
               el.value = '';
               if (el.tagName === 'SELECT') el.selectedIndex = 0;
             }
@@ -716,14 +713,13 @@
             btn.disabled = false;
           }, 8000);
         } else {
-          btn.textContent = 'Error: ' + (json.message || 'Unknown error');
+          btn.textContent = 'Try Again';
           btn.disabled = false;
-          console.error('Web3Forms error:', json);
         }
       } catch(err) {
-        btn.textContent = 'Try Again — ' + err.message;
+        btn.textContent = 'Try Again';
         btn.disabled = false;
-        console.error('Submission error:', err);
+        console.error('Error:', err);
       }
     });
   </script>
