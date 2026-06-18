@@ -49,3 +49,14 @@ if (revealEls.length) {
 }
 
 // Form submission handled inline on contact.html
+
+// Service card scroll reveal (mobile — shows desc + learn more on scroll)
+var serviceCards = document.querySelectorAll('.service-card');
+if (serviceCards.length) {
+  var cardObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      entry.target.classList.toggle('in-view', entry.isIntersecting);
+    });
+  }, { threshold: 0.4 });
+  serviceCards.forEach(function(card) { cardObserver.observe(card); });
+}
