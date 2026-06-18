@@ -716,12 +716,12 @@
             btn.disabled = false;
           }, 8000);
         } else {
-          btn.textContent = 'Try Again';
+          btn.textContent = 'Error: ' + (json.message || 'Unknown error');
           btn.disabled = false;
           console.error('Web3Forms error:', json);
         }
       } catch(err) {
-        btn.textContent = 'Try Again';
+        btn.textContent = 'Try Again — ' + err.message;
         btn.disabled = false;
         console.error('Submission error:', err);
       }
