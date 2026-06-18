@@ -437,6 +437,42 @@
   }, 4000);
   </script>
 
+  <script src="js/main.js"></script>
+  <script>
+    // Mobile menu
+    (function() {
+      var hamburger = document.querySelector('.nav__hamburger');
+      var mobileMenu = document.querySelector('.mobile-menu');
+      var closeBtn = document.querySelector('.mobile-menu__close');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          mobileMenu.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+        closeBtn && closeBtn.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      // Service card scroll reveal
+      var cards = document.querySelectorAll('.service-card');
+      if (cards.length && 'IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            e.target.classList.toggle('in-view', e.isIntersecting);
+          });
+        }, { threshold: 0.5 });
+        cards.forEach(function(c) { obs.observe(c); });
+      }
+    })();
+  </script>
   <script src="js/i18n.js"></script>
   <script>
     var _lang = localStorage.getItem('ezhairr_lang') || 'en';
