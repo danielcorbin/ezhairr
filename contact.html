@@ -648,20 +648,40 @@
     Text Me
   </a>
 
-  <script src="js/main.js"></script>
   <script>
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
+    // Nav
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    const revealEls = document.querySelectorAll('[data-reveal]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    // Mobile menu
+    var hamburger = document.querySelector('.nav__hamburger');
+    var mobileMenu = document.querySelector('.mobile-menu');
+    var mobileClose = document.querySelector('.mobile-menu__close');
+    if (hamburger) hamburger.addEventListener('click', function() {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    if (mobileClose) mobileClose.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Reveal
+    var revealEls = document.querySelectorAll('[data-reveal]');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
       });
     }, { threshold: 0.12 });
-    revealEls.forEach(el => observer.observe(el));
+    revealEls.forEach(function(el) { observer.observe(el); });
 
     // Contact form
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
