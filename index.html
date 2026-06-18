@@ -200,15 +200,14 @@
   </section>
   <div class="services-grid">
 
-    <div class="service-card">
+    <div style="position:relative;overflow:hidden;background:var(--dark);cursor:pointer;height:520px;" onmouseenter="this.querySelector('.sc-overlay').style.background='linear-gradient(to top,rgba(20,16,12,0.98) 0%,rgba(20,16,12,0.55) 60%,rgba(20,16,12,0.15) 100%)';this.querySelectorAll('.sc-desc,.sc-link').forEach(e=>{e.style.opacity='1';e.style.transform='translateY(0)'})" onmouseleave="this.querySelector('.sc-overlay').style.background='linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%)';this.querySelectorAll('.sc-desc,.sc-link').forEach(e=>{e.style.opacity='0';e.style.transform='translateY(8px)'})">
       <img src="images/color.jpg" alt="Effortless Color" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;" />
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%);transition:background 0.35s ease;" class="service-card__overlay">
-        <div style="position:absolute;bottom:2.5rem;left:2rem;right:2rem;">
-          <p class="service-card__label">Service</p>
-          <h3 class="service-card__title">Effortless Color</h3>
-          <p class="service-card__desc">Soft balayage and foilayage creating dimensional, lived-in color that's easy to maintain.</p>
-          <button class="service-card__link" onclick="toggleCard('color')">Learn More</button>
-        </div>
+      <div class="sc-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%);transition:background 0.35s ease;"></div>
+      <div style="position:absolute;bottom:40px;left:32px;right:32px;">
+        <span style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:#C8B89A;margin:0 0 8px;display:block;">Service</span>
+        <h3 style="font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;font-weight:300;color:#F5EFE6;margin:0 0 8px;">Effortless Color</h3>
+        <p class="sc-desc" style="font-family:Montserrat,sans-serif;font-size:11px;line-height:1.8;color:#F5EFE6;opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease;margin:0 0 12px;">Soft balayage and foilayage creating dimensional, lived-in color that's easy to maintain.</p>
+        <button class="sc-link" style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:#C8B89A;opacity:0;transform:translateY(6px);transition:opacity 0.4s ease 0.05s,transform 0.4s ease 0.05s;background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px;" onclick="toggleCard('color')">Learn More →</button>
       </div>
       <div class="service-card__accordion" id="accordion-color">
         <button class="accordion-close" onclick="toggleCard('color')">&#x2715;</button>
@@ -219,17 +218,17 @@
           <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" class="service-card__accordion-btn">Book Now</a>
         </div>
       </div>
+    
     </div>
 
-    <div class="service-card">
+    <div style="position:relative;overflow:hidden;background:var(--dark);cursor:pointer;height:520px;" onmouseenter="this.querySelector('.sc-overlay').style.background='linear-gradient(to top,rgba(20,16,12,0.98) 0%,rgba(20,16,12,0.55) 60%,rgba(20,16,12,0.15) 100%)';this.querySelectorAll('.sc-desc,.sc-link').forEach(e=>{e.style.opacity='1';e.style.transform='translateY(0)'})" onmouseleave="this.querySelector('.sc-overlay').style.background='linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%)';this.querySelectorAll('.sc-desc,.sc-link').forEach(e=>{e.style.opacity='0';e.style.transform='translateY(8px)'})">
       <img src="images/cuts.jpg" alt="Cuts and Styling" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;" />
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%);transition:background 0.35s ease;" class="service-card__overlay">
-        <div style="position:absolute;bottom:2.5rem;left:2rem;right:2rem;">
-          <p class="service-card__label">Service</p>
-          <h3 class="service-card__title">Cuts + Styling</h3>
-          <p class="service-card__desc">Every cut is personalized to fit how you actually live in your hair.</p>
-          <button class="service-card__link" onclick="toggleCard('cuts')">Learn More</button>
-        </div>
+      <div class="sc-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%);transition:background 0.35s ease;"></div>
+      <div style="position:absolute;bottom:40px;left:32px;right:32px;">
+        <span style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:#C8B89A;margin:0 0 8px;display:block;">Service</span>
+        <h3 style="font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;font-weight:300;color:#F5EFE6;margin:0 0 8px;">Cuts + Styling</h3>
+        <p class="sc-desc" style="font-family:Montserrat,sans-serif;font-size:11px;line-height:1.8;color:#F5EFE6;opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease;margin:0 0 12px;">Every cut is personalized to fit how you actually live in your hair.</p>
+        <button class="sc-link" style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:#C8B89A;opacity:0;transform:translateY(6px);transition:opacity 0.4s ease 0.05s,transform 0.4s ease 0.05s;background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px;" onclick="toggleCard('cuts')">Learn More →</button>
       </div>
       <div class="service-card__accordion" id="accordion-cuts">
         <button class="accordion-close" onclick="toggleCard('cuts')">&#x2715;</button>
@@ -240,17 +239,17 @@
           <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" class="service-card__accordion-btn">Book Now</a>
         </div>
       </div>
+    
     </div>
 
-    <div class="service-card">
+    <div style="position:relative;overflow:hidden;background:var(--dark);cursor:pointer;height:520px;" onmouseenter="this.querySelector('.sc-overlay').style.background='linear-gradient(to top,rgba(20,16,12,0.98) 0%,rgba(20,16,12,0.55) 60%,rgba(20,16,12,0.15) 100%)';this.querySelectorAll('.sc-desc,.sc-link').forEach(e=>{e.style.opacity='1';e.style.transform='translateY(0)'})" onmouseleave="this.querySelector('.sc-overlay').style.background='linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%)';this.querySelectorAll('.sc-desc,.sc-link').forEach(e=>{e.style.opacity='0';e.style.transform='translateY(8px)'})">
       <img src="images/extensions.jpg" alt="Extension Services" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;" />
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%);transition:background 0.35s ease;" class="service-card__overlay">
-        <div style="position:absolute;bottom:2.5rem;left:2rem;right:2rem;">
-          <p class="service-card__label">Service</p>
-          <h3 class="service-card__title">Extension Services</h3>
-          <p class="service-card__desc">Custom extensions tailored to your hair texture, lifestyle, and goals.</p>
-          <button class="service-card__link" onclick="toggleCard('extensions')">Learn More</button>
-        </div>
+      <div class="sc-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,12,0.95) 0%,rgba(20,16,12,0.2) 60%,transparent 100%);transition:background 0.35s ease;"></div>
+      <div style="position:absolute;bottom:40px;left:32px;right:32px;">
+        <span style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:#C8B89A;margin:0 0 8px;display:block;">Service</span>
+        <h3 style="font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;font-weight:300;color:#F5EFE6;margin:0 0 8px;">Extension Services</h3>
+        <p class="sc-desc" style="font-family:Montserrat,sans-serif;font-size:11px;line-height:1.8;color:#F5EFE6;opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease;margin:0 0 12px;">Custom extensions tailored to your hair texture, lifestyle, and goals.</p>
+        <button class="sc-link" style="font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:#C8B89A;opacity:0;transform:translateY(6px);transition:opacity 0.4s ease 0.05s,transform 0.4s ease 0.05s;background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px;" onclick="toggleCard('extensions')">Learn More →</button>
       </div>
       <div class="service-card__accordion" id="accordion-extensions">
         <button class="accordion-close" onclick="toggleCard('extensions')">&#x2715;</button>
@@ -261,6 +260,7 @@
           <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" class="service-card__accordion-btn">Book a Consultation</a>
         </div>
       </div>
+    </div>
     </div>
 
   </div>
