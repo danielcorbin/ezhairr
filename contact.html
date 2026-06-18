@@ -536,6 +536,7 @@
         <input type="hidden" name="access_key" value="0a967ddf-5397-491b-984d-6dda5e58e24f" />
         <input type="hidden" name="subject" value="New Consultation Request - EzHairr" />
         <input type="hidden" name="from_name" value="EzHairr Website" />
+        <input type="checkbox" name="botcheck" style="display:none;" />
         <div class="f-row">
           <div class="f-group">
             <label for="fname">First Name</label>
@@ -666,6 +667,7 @@
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       var form = this;
+      var scrollY = window.scrollY;
       var btn = form.querySelector('.f-submit');
       btn.textContent = 'Sending...';
       btn.disabled = true;
@@ -675,10 +677,18 @@
           method: 'POST',
           body: data
         });
-        if (res.ok) {
-          form.reset();
+        var json = await res.json();
+        if (res.ok && json.success) {
+          // Reset without page jump
+          Array.from(form.elements).forEach(function(el) {
+            if (el.type !== 'hidden' && el.type !== 'checkbox') {
+              el.value = '';
+              if (el.tagName === 'SELECT') el.selectedIndex = 0;
+            }
+          });
+          window.scrollTo(0, scrollY);
           btn.textContent = 'Ez will respond within 24 hours';
-          btn.style.cssText = 'background:transparent;color:var(--earth);border-color:var(--earth);cursor:default;';
+          btn.style.cssText = 'background:transparent;color:var(--earth);border-color:var(--earth);cursor:default;font-size:10px;letter-spacing:0.08em;';
           btn.disabled = true;
           setTimeout(function() {
             btn.textContent = 'Send Message';
@@ -688,10 +698,12 @@
         } else {
           btn.textContent = 'Try Again';
           btn.disabled = false;
+          console.error('Web3Forms error:', json);
         }
       } catch(err) {
         btn.textContent = 'Try Again';
         btn.disabled = false;
+        console.error('Submission error:', err);
       }
     });
   </script>
