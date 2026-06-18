@@ -319,7 +319,7 @@
       <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
     </ul>
     <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="nav__cta" target="_blank" rel="noopener" data-i18n="nav_book">Book Now</a>
-    <div class="lang-switcher">
+        <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <span class="lang-divider">|</span>
       <button class="lang-btn" onclick="setLang('es')">ES</button>
@@ -443,6 +443,7 @@
     revealEls.forEach(function(el){obs.observe(el);});
   </script>
 
+  
   <script src="js/i18n.js"></script>
   <script>
     var _lang = localStorage.getItem('ezhairr_lang') || 'en';
@@ -452,7 +453,7 @@
       var tr = EZ_TRANSLATIONS[lang];
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var k = el.getAttribute('data-i18n');
-        if (tr[k] !== undefined) el.textContent = tr[k];
+        if (tr && tr[k] !== undefined) el.textContent = tr[k];
       });
       document.querySelectorAll('.lang-btn').forEach(function(b) {
         b.classList.toggle('active', b.textContent.toLowerCase() === lang);
@@ -460,10 +461,10 @@
       document.documentElement.lang = lang==='pt'?'pt-BR':lang==='es'?'es-419':'en';
       var track = document.getElementById('marquee-track');
       var mk = document.body.getAttribute('data-marquee-key');
-      if (track && mk && tr[mk]) {
-        var words = tr[mk], html = '';
-        for (var i=0;i<2;i++) words.forEach(function(w){html+='<span>'+w+'</span><span class="dot">·</span>';});
-        track.innerHTML = html;
+      if (track && mk && tr && tr[mk]) {
+        var words = tr[mk], h = '';
+        for (var i=0;i<2;i++) words.forEach(function(w){h+='<span>'+w+'</span><span class="dot">·</span>';});
+        track.innerHTML = h;
       }
     }
     setLang(_lang);
