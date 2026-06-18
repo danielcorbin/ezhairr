@@ -342,7 +342,7 @@
     }
   </style>
 </head>
-<body>
+<body data-page="gallery" data-marquee-key="gl_marquee">
 
   <!-- NAV -->
   <nav class="nav" id="nav">
@@ -384,9 +384,9 @@
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="eyebrow">The Work</p>
-    <h1 class="heading">Client <em>Gallery</em></h1>
-    <p>A look at real results from real clients. Every transformation is unique, intentional, and built around the individual.</p>
+    <p class="eyebrow" data-i18n="gl_eyebrow">The Work</p>
+    <h1 class="heading"><span data-i18n="gl_h1">Client</span> <em data-i18n="gl_em">Gallery</em></h1>
+    <p><span data-i18n="gl_hero_body">A look at real results from real clients. Every transformation is unique, intentional, and built around the individual.</span></p>
   </div>
 
   <!-- MARQUEE -->
@@ -457,12 +457,12 @@
 
   <!-- CTA -->
   <section class="cta-strip">
-    <p class="eyebrow">Ready for Your Transformation?</p>
-    <h2 class="heading">Let's create something <em>beautiful</em></h2>
-    <p>New clients start with a consultation. Existing clients can book directly.</p>
+    <p class="eyebrow" data-i18n="gl_cta_eyebrow">Ready for Your Transformation?</p>
+    <h2 class="heading">Let's create something <em><em data-i18n="gl_cta_em">beautiful</em></em></h2>
+    <p><span data-i18n="gl_cta_body">New clients start with a consultation. Existing clients can book directly.</span></p>
     <div>
-      <a href="contact.html" class="cta-btn">Request a Consultation</a>
-      <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="cta-btn ghost" target="_blank" rel="noopener">Book an Appointment</a>
+      <a href="contact.html" class="cta-btn"><span data-i18n="gl_cta_btn1">Request a Consultation</span></a>
+      <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="cta-btn ghost" target="_blank" rel="noopener"><span data-i18n="gl_cta_btn2">Book an Appointment</span></a>
     </div>
   </section>
 
@@ -511,6 +511,29 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    (function() {
+      var hamburger = document.querySelector('.nav__hamburger');
+      var mobileMenu = document.querySelector('.mobile-menu');
+      var closeBtn = document.querySelector('.mobile-menu__close');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          mobileMenu.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+        if (closeBtn) closeBtn.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+    })();
+  </script>
   <script>
     var nav = document.getElementById('nav');
     window.addEventListener('scroll', function() {

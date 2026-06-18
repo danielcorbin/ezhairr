@@ -446,6 +446,29 @@
 
   <script src="js/main.js"></script>
   <script>
+    (function() {
+      var hamburger = document.querySelector('.nav__hamburger');
+      var mobileMenu = document.querySelector('.mobile-menu');
+      var closeBtn = document.querySelector('.mobile-menu__close');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          mobileMenu.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+        if (closeBtn) closeBtn.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+    })();
+  </script>
+  <script>
     var nav = document.getElementById('nav');
     window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); });
     var revealEls = document.querySelectorAll('[data-reveal]');
