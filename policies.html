@@ -2,31 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="keywords" content="hair color results Raleigh, balayage before after, hair extensions results, EzHairr gallery" />
-  <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Browse EzHairr client gallery — real results including balayage, extensions, color transformations, and cuts. Luxury hair studio in Raleigh, NC." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.ezhairr.com/gallery.html" />
-  <meta property="og:title" content="Client Gallery | EzHairr Raleigh NC" />
-  <meta property="og:description" content="Real results from EzHairr clients. Balayage, extensions, color, and cuts at a private luxury studio in Raleigh, NC." />
-  <meta property="og:image" content="https://www.ezhairr.com/images/gallery_01.jpg" />
-  <meta property="og:site_name" content="EzHairr" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Client Gallery | EzHairr Raleigh NC" />
-  <meta name="twitter:description" content="Real results from EzHairr clients. Balayage, extensions, color, and cuts at a private luxury studio in Raleigh, NC." />
-  <meta name="twitter:image" content="https://www.ezhairr.com/images/gallery_01.jpg" />
-  <link rel="canonical" href="https://www.ezhairr.com/gallery.html" />
-  <title>Gallery | EzHairr — Hair Color & Extensions Results Raleigh NC</title>
+  <meta name="description" content="EzHairr Studio Policies — cancellation, no-show, late arrival, deposit, and consultation policies." />
+  <meta name="robots" content="index, follow" />
+  <title>Studio Policies | EzHairr</title>
+  <link rel="canonical" href="https://www.ezhairr.com/policies.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    .lang-switcher { display:flex; align-items:center; gap:0.5rem; margin-left:1.5rem; }
-    .lang-btn { font-family:'Montserrat',sans-serif; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--sand); opacity:0.6; background:none; border:none; cursor:pointer; padding:0.2rem 0.4rem; transition:opacity 0.2s; }
-    .lang-btn:hover, .lang-btn.active { opacity:1; }
-    .lang-btn.active { border-bottom:1px solid var(--sand); }
-    .lang-divider { color:var(--sand); opacity:0.3; font-size:9px; }
 :root {
       --ink:     #1E1A16;
       --dark:    #2C2820;
@@ -246,6 +230,75 @@
     [data-reveal-delay="1"] { transition-delay: 0.12s; }
     [data-reveal-delay="2"] { transition-delay: 0.24s; }
 
+
+
+    /* HAMBURGER + MOBILE MENU */
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      margin-left: 1rem;
+      z-index: 100;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--sand);
+    }
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(28,22,18,0.98);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .mobile-menu a:hover { opacity: 1; }
+    .mobile-menu__close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: var(--sand);
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.7;
+      line-height: 1;
+    }
+
+    /* SERVICE CARD SCROLL/HOVER REVEAL */
+    .service-card.in-view .service-card__desc,
+    .service-card:hover .service-card__desc { opacity: 0.8; transform: translateY(0); }
+    .service-card.in-view .service-card__link,
+    .service-card:hover .service-card__link { opacity: 1; transform: translateY(0); }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; height: auto; }
       .hero__image { height: 60vw; min-height: 280px; }
@@ -253,6 +306,7 @@
       .hero__scroll { display: none; }
       .nav { padding: 1.25rem 2rem; }
       .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
       .pillars { grid-template-columns: 1fr; }
       .pillar { border-right: none; border-bottom: 1px solid rgba(200,184,154,0.15); }
       .services-grid { grid-template-columns: 1fr 1fr; }
@@ -275,8 +329,9 @@
     .nav__logo-img:hover { opacity: 1; }
     .footer__logo-img { display: block; height: 48px; width: auto; filter: invert(1) brightness(2); opacity: 0.85; }
 
-    [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+
+    [data-reveal] { opacity:0; transform:translateY(28px); transition:opacity 0.75s ease, transform 0.75s ease; }
+    [data-reveal].revealed { opacity:1; transform:translateY(0); }
 
     .page-hero {
       padding: 12rem 4rem 5rem;
@@ -286,74 +341,98 @@
     }
     .page-hero .eyebrow { margin-bottom: 1rem; }
     .page-hero .heading { font-size: clamp(2.8rem, 5vw, 4.5rem); max-width: 700px; margin: 0 auto 1.5rem; }
-    .page-hero > p { font-size: 13px; opacity: 0.6; max-width: 480px; margin: 0 auto; color: var(--ink); }
+    .page-hero > p { font-size: 13px; opacity: 0.6; max-width: 520px; margin: 0 auto; color: var(--ink); line-height: 1.9; }
 
-    .gallery-section {
-      padding: 5rem 3rem;
+    .policies-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 5rem 4rem;
       background: var(--cream);
     }
 
-    .masonry-grid {
-      columns: 3;
-      column-gap: 1rem;
+    .policy-card {
+      border: 1px solid rgba(107,88,71,0.14);
+      margin-bottom: 2rem;
+      background: var(--ivory);
     }
 
-    .gallery-item {
-      break-inside: avoid;
+    .policy-card__header {
+      padding: 2rem 2.5rem 1.5rem;
+      border-bottom: 1px solid rgba(107,88,71,0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .policy-card__number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(168,145,122,0.25);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .policy-card__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .policy-card__subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    .policy-card__body {
+      padding: 1.75rem 2.5rem 2rem;
+    }
+
+    .policy-card__body p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      line-height: 2;
+      color: var(--ink);
+      opacity: 0.68;
       margin-bottom: 1rem;
-      overflow: hidden;
-      position: relative;
     }
 
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.6s ease;
+    .policy-card__body p:last-child { margin-bottom: 0; }
+
+    .policy-card__body strong {
+      font-weight: 500;
+      color: var(--earth);
+      opacity: 1;
     }
 
-    .gallery-item:hover img {
-      transform: scale(1.03);
-    }
-
-    .cta-strip {
-      text-align: center; padding: 6rem 4rem;
+    .policy-note {
       background: var(--ink);
+      padding: 2.5rem;
+      margin-top: 3rem;
+      text-align: center;
     }
-    .cta-strip .eyebrow { color: var(--sand); margin-bottom: 1rem; }
-    .cta-strip .heading { color: var(--cream); margin-bottom: 1rem; }
-    .cta-strip .heading em { color: var(--sand); font-style: italic; }
-    .cta-strip > p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px; color: var(--cream); opacity: 0.6;
-      margin-bottom: 2.5rem; max-width: 480px;
-      margin-left: auto; margin-right: auto;
-    }
-    .cta-btn {
-      display: inline-block;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-      background: var(--sand); color: var(--ink);
-      padding: 1rem 2.5rem; border: 1px solid var(--sand);
-      text-decoration: none;
-      transition: background 0.3s ease, color 0.3s ease;
-      margin: 0 0.75rem;
-    }
-    .cta-btn:hover { background: transparent; color: var(--sand); }
-    .cta-btn.ghost { background: transparent; color: var(--sand); border-color: var(--sand); }
-    .cta-btn.ghost:hover { background: var(--sand); color: var(--ink); }
 
-    @media (max-width: 900px) {
-      .page-hero { padding: 10rem 2rem 4rem; }
-      .gallery-section { padding: 3rem 1.5rem; }
-      .masonry-grid { columns: 2; }
-      .footer-grid { grid-template-columns: 1fr; padding: 3rem 2rem; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; padding: 1.5rem 2rem; text-align: center; }
+    .policy-note p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--cream);
+      opacity: 0.7;
+      margin-bottom: 1rem;
     }
-    @media (max-width: 500px) {
-      .masonry-grid { columns: 1; }
+
+    .policy-note p:last-child { margin-bottom: 0; }
+
+    .policy-note a {
+      color: var(--sand);
+      text-decoration: underline;
     }
-  
+
     .nav__hamburger {
       display: none;
       flex-direction: column;
@@ -392,11 +471,8 @@
       font-weight: 300;
       color: var(--cream);
       text-decoration: none;
-      letter-spacing: 0.05em;
       opacity: 0.85;
-      transition: opacity 0.2s;
     }
-    .mobile-menu a:hover { opacity: 1; }
     .mobile-menu__close {
       position: absolute;
       top: 2rem;
@@ -407,18 +483,32 @@
       font-size: 1.8rem;
       cursor: pointer;
       opacity: 0.7;
-      line-height: 1;
     }
+    .cta-strip {
+      text-align: center; padding: 6rem 4rem; background: var(--ink);
+    }
+    .cta-strip .eyebrow { color: var(--sand); margin-bottom: 1rem; }
+    .cta-strip .heading { color: var(--cream); margin-bottom: 1rem; }
+    .cta-strip .heading em { color: var(--sand); font-style: italic; }
+    .cta-strip > p { font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--cream); opacity: 0.6; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; background: var(--sand); color: var(--ink); padding: 1rem 2.5rem; border: 1px solid var(--sand); text-decoration: none; transition: background 0.3s ease, color 0.3s ease; margin: 0 0.5rem; }
+    .cta-btn:hover { background: transparent; color: var(--sand); }
     @media (max-width: 900px) {
       .nav__hamburger { display: flex; }
       .nav__links, .nav__cta { display: none !important; }
+      .page-hero { padding: 10rem 2rem 4rem; }
+      .policies-wrap { padding: 3rem 2rem; }
+      .policy-card__header { padding: 1.5rem 1.5rem 1rem; gap: 1rem; }
+      .policy-card__body { padding: 1.25rem 1.5rem 1.5rem; }
+      .policy-note { padding: 2rem; }
+      .footer-grid { grid-template-columns: 1fr; padding: 3rem 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; padding: 1.5rem 2rem; text-align: center; }
+      .cta-strip { padding: 4rem 2rem; }
     }
-
   </style>
 </head>
-<body data-page="gallery" data-marquee-key="gl_marquee">
+<body>
 
-  <!-- NAV -->
   <nav class="nav" id="nav">
     <a href="index.html" class="nav__logo">
       <img src="images/logo.png" alt="EzHairr" class="nav__logo-img" />
@@ -432,19 +522,11 @@
       <li><a href="gallery.html">Gallery</a></li>
     </ul>
     <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="nav__cta" target="_blank" rel="noopener">Book Now</a>
-        <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <span class="lang-divider">|</span>
-      <button class="lang-btn" onclick="setLang('es')">ES</button>
-      <span class="lang-divider">|</span>
-      <button class="lang-btn" onclick="setLang('pt')">PT</button>
-    </div>
     <button class="nav__hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu" role="dialog" aria-modal="true">
     <button class="mobile-menu__close" aria-label="Close menu">&#x2715;</button>
     <a href="index.html">Home</a>
@@ -456,91 +538,124 @@
     <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" target="_blank" rel="noopener" style="color:var(--sand);">Book Now</a>
   </div>
 
-  <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="eyebrow" data-i18n="gl_eyebrow">The Work</p>
-    <h1 class="heading"><span data-i18n="gl_h1">Client</span> <em data-i18n="gl_em">Gallery</em></h1>
-    <p><span data-i18n="gl_hero_body">A look at real results from real clients. Every transformation is unique, intentional, and built around the individual.</span></p>
+    <p class="eyebrow">The Fine Print</p>
+    <h1 class="heading">Studio <em>Policies</em></h1>
+    <p>To ensure the best experience for every client, please take a moment to review these policies before your appointment.</p>
   </div>
 
-  <!-- MARQUEE -->
-  <div class="marquee-strip" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Color</span><span class="dot">·</span>
-      <span>Extensions</span><span class="dot">·</span>
-      <span>Balayage</span><span class="dot">·</span>
-      <span>Cuts</span><span class="dot">·</span>
-      <span>Blowouts</span><span class="dot">·</span>
-      <span>Transformations</span><span class="dot">·</span>
-      <span>Raleigh, NC</span><span class="dot">·</span>
-      <span>Color</span><span class="dot">·</span>
-      <span>Extensions</span><span class="dot">·</span>
-      <span>Balayage</span><span class="dot">·</span>
-      <span>Cuts</span><span class="dot">·</span>
-      <span>Blowouts</span><span class="dot">·</span>
-      <span>Transformations</span><span class="dot">·</span>
-      <span>Raleigh, NC</span><span class="dot">·</span>
+  <div class="policies-wrap">
+
+    <div class="policy-card" data-reveal>
+      <div class="policy-card__header">
+        <div class="policy-card__number">01</div>
+        <div>
+          <p class="policy-card__subtitle">Booking</p>
+          <h2 class="policy-card__title">Consultation Policy</h2>
+        </div>
+      </div>
+      <div class="policy-card__body">
+        <p>All new clients are required to complete a consultation before any service is booked. This allows me to review your hair history, understand your goals, assess your hair's current condition, and build a realistic plan together.</p>
+        <p>Consultations can be requested through the <a href="contact.html" style="color:var(--earth);text-decoration:underline;">contact form</a>. Please include a photo of your natural hair so I can come prepared. I will follow up within 24 hours to discuss next steps and schedule your first appointment.</p>
+        <p><strong>Returning clients</strong> may book directly online without a consultation unless they are requesting a new service type (such as extensions for the first time), in which case a brief consultation is recommended.</p>
+      </div>
     </div>
+
+    <div class="policy-card" data-reveal>
+      <div class="policy-card__header">
+        <div class="policy-card__number">02</div>
+        <div>
+          <p class="policy-card__subtitle">Scheduling</p>
+          <h2 class="policy-card__title">Cancellation Policy</h2>
+        </div>
+      </div>
+      <div class="policy-card__body">
+        <p>I understand that life happens. If you need to cancel or reschedule, please provide as much notice as possible so the appointment slot can be offered to another client.</p>
+        <p><strong>48 hours or more:</strong> No charge. You are welcome to reschedule at no cost.</p>
+        <p><strong>Within 24 hours:</strong> A fee of <strong>50% of the scheduled service</strong> will be charged. This must be settled before a new appointment can be booked.</p>
+        <p><strong>Same day cancellation:</strong> This is treated as a no-show and a fee equal to <strong>100% of the scheduled service</strong> will be charged.</p>
+        <p>To cancel or reschedule, please text or call <a href="tel:9194442266" style="color:var(--earth);text-decoration:underline;">(919) 444-2266</a> or email <a href="mailto:hello@ezhairr.com" style="color:var(--earth);text-decoration:underline;">hello@ezhairr.com</a> as early as possible.</p>
+      </div>
+    </div>
+
+    <div class="policy-card" data-reveal>
+      <div class="policy-card__header">
+        <div class="policy-card__number">03</div>
+        <div>
+          <p class="policy-card__subtitle">Attendance</p>
+          <h2 class="policy-card__title">No-Show Policy</h2>
+        </div>
+      </div>
+      <div class="policy-card__body">
+        <p>A no-show is when a client misses their scheduled appointment without any prior notice. Out of respect for my time and other clients waiting for availability, the following applies:</p>
+        <p><strong>First no-show:</strong> A fee equal to <strong>100% of the scheduled service</strong> will be charged. This must be paid in full before rebooking.</p>
+        <p><strong>Second no-show:</strong> The client may be removed from the booking system and will need to reach out directly to discuss whether future appointments can be accommodated.</p>
+        <p>If you are unable to reach me before your appointment, please send a text or email as soon as possible. Communication is always appreciated.</p>
+      </div>
+    </div>
+
+    <div class="policy-card" data-reveal>
+      <div class="policy-card__header">
+        <div class="policy-card__number">04</div>
+        <div>
+          <p class="policy-card__subtitle">Timing</p>
+          <h2 class="policy-card__title">Late Arrival Policy</h2>
+        </div>
+      </div>
+      <div class="policy-card__body">
+        <p>Please plan to arrive on time. This is a private, one-on-one studio with back-to-back appointments, so late arrivals directly impact the schedule for everyone.</p>
+        <p><strong>Up to 15 minutes late:</strong> I will do my best to accommodate you, though the service may need to be adjusted to fit the remaining time.</p>
+        <p><strong>More than 15 minutes late:</strong> This is considered a no-show unless other arrangements have been made in advance. The no-show policy will apply and a fee equal to <strong>100% of the scheduled service</strong> will be charged before rebooking.</p>
+        <p>If you are running late, please text <a href="sms:9194442266" style="color:var(--earth);text-decoration:underline;">(919) 444-2266</a> as soon as possible so we can make arrangements.</p>
+      </div>
+    </div>
+
+    <div class="policy-card" data-reveal>
+      <div class="policy-card__header">
+        <div class="policy-card__number">05</div>
+        <div>
+          <p class="policy-card__subtitle">Payments</p>
+          <h2 class="policy-card__title">Deposit Policy</h2>
+        </div>
+      </div>
+      <div class="policy-card__body">
+        <p>A deposit may be required to secure your appointment, particularly for longer services such as extensions, full color transformations, or appointments booked during peak times.</p>
+        <p>Deposit amounts will be communicated at the time of booking and are <strong>non-refundable</strong> in the event of a cancellation within 48 hours or a no-show.</p>
+        <p>Deposits are applied toward the total cost of your service. If your appointment is rescheduled with sufficient notice, the deposit will carry over to your new appointment date.</p>
+      </div>
+    </div>
+
+
+    <div class="policy-card" data-reveal>
+      <div class="policy-card__header">
+        <div class="policy-card__number">06</div>
+        <div>
+          <p class="policy-card__subtitle">Studio Environment</p>
+          <h2 class="policy-card__title">Children in the Studio</h2>
+        </div>
+      </div>
+      <div class="policy-card__body">
+        <p>To maintain a safe, focused environment for all clients, <strong>children under the age of 12 are not permitted in the studio</strong> unless they are receiving a service themselves.</p>
+        <p>This policy is in place due to the limited space of the studio and the presence of professional tools, chemicals, and equipment that pose safety risks to young children. We appreciate your understanding and ask that you make appropriate childcare arrangements prior to your appointment.</p>
+        <p>If you have any questions or concerns regarding this policy, please reach out before your appointment and we will do our best to accommodate your situation.</p>
+      </div>
+    </div>
+
+        <div class="policy-note" data-reveal>
+      <p>These policies exist to protect both your time and mine. I genuinely appreciate every client and want every experience at EzHairr to be exceptional. If you have any questions about these policies or a special circumstance, please reach out directly.</p>
+      <p><a href="mailto:hello@ezhairr.com">hello@ezhairr.com</a> &nbsp;·&nbsp; <a href="tel:9194442266">(919) 444-2266</a></p>
+    </div>
+
   </div>
 
-  <!-- GALLERY -->
-  <section class="gallery-section">
-    <div class="masonry-grid" data-reveal>
-      
-      <div class="gallery-item">
-        <img src="images/gallery_01.jpg" alt="Platinum blonde" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_02.jpg" alt="Jet black curls" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_03.jpg" alt="Brunette extensions" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_04.jpg" alt="Copper auburn" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_05.jpg" alt="Ash grey waves" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_06.jpg" alt="Platinum blonde bob" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_07.jpg" alt="Dark brunette curls" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_08.jpg" alt="Long wavy brunette" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_09.jpg" alt="Warm balayage" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_10.jpg" alt="Dark cherry red" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_11.jpg" alt="Brunette balayage" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_12.jpg" alt="Dark wavy extensions" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="images/gallery_13.jpg" alt="Golden balayage" loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
   <section class="cta-strip">
-    <p class="eyebrow" data-i18n="gl_cta_eyebrow">Ready for Your Transformation?</p>
-    <h2 class="heading">Let's create something <em><em data-i18n="gl_cta_em">beautiful</em></em></h2>
-    <p><span data-i18n="gl_cta_body">New clients start with a consultation. Existing clients can book directly.</span></p>
-    <div>
-      <a href="contact.html" class="cta-btn"><span data-i18n="gl_cta_btn1">Request a Consultation</span></a>
-      <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="cta-btn ghost" target="_blank" rel="noopener"><span data-i18n="gl_cta_btn2">Book an Appointment</span></a>
-    </div>
+    <p class="eyebrow">Ready to Book?</p>
+    <h2 class="heading">Let's get you <em>scheduled</em></h2>
+    <p>New clients start with a consultation. Existing clients can book directly online.</p>
+    <a href="contact.html" class="cta-btn">Request a Consultation</a>
+    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="cta-btn" style="background:transparent;color:var(--sand);border-color:var(--sand);" target="_blank" rel="noopener">Book an Appointment</a>
   </section>
 
-  <!-- FOOTER -->
   <div class="footer-grid">
     <div>
       <div class="footer__logo">
@@ -567,16 +682,6 @@
         <a href="tel:9194442266" style="color:var(--sand);">(919) 444-2266</a><br>
         <a href="mailto:hello@ezhairr.com" style="color:var(--sand);">hello@ezhairr.com</a>
       </p>
-      <div style="margin-top:2rem;display:flex;gap:1.5rem;align-items:center;">
-        <a href="https://www.instagram.com/ezhairr" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.5rem;color:var(--sand);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-family:'Montserrat',sans-serif;text-decoration:none;opacity:0.8;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          @ezhairr
-        </a>
-        <a href="https://www.tiktok.com/@ezhairr" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.5rem;color:var(--sand);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-family:'Montserrat',sans-serif;text-decoration:none;opacity:0.8;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-          @ezhairr
-        </a>
-      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -586,65 +691,19 @@
 
   <script src="js/main.js"></script>
   <script>
-    (function() {
-      var hamburger = document.querySelector('.nav__hamburger');
-      var mobileMenu = document.querySelector('.mobile-menu');
-      var closeBtn = document.querySelector('.mobile-menu__close');
-      if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function() {
-          mobileMenu.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        });
-        if (closeBtn) closeBtn.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-          document.body.style.overflow = '';
-        });
-        document.querySelectorAll('.mobile-menu a').forEach(function(a) {
-          a.addEventListener('click', function() {
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-          });
-        });
-      }
-    })();
-  </script>
-  <script>
     var nav = document.getElementById('nav');
-    window.addEventListener('scroll', function() {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+    window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); });
     var revealEls = document.querySelectorAll('[data-reveal]');
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
-      });
-    }, { threshold: 0.05 });
-    revealEls.forEach(function(el) { observer.observe(el); });
-  </script>
-  <script src="js/i18n.js"></script>
-  <script>
-    var _lang = localStorage.getItem('ezhairr_lang') || 'en';
-    function setLang(lang) {
-      _lang = lang;
-      localStorage.setItem('ezhairr_lang', lang);
-      var tr = EZ_TRANSLATIONS[lang];
-      document.querySelectorAll('[data-i18n]').forEach(function(el) {
-        var k = el.getAttribute('data-i18n');
-        if (tr && tr[k] !== undefined) el.textContent = tr[k];
-      });
-      document.querySelectorAll('.lang-btn').forEach(function(b) {
-        b.classList.toggle('active', b.textContent.toLowerCase() === lang);
-      });
-      document.documentElement.lang = lang==='pt'?'pt-BR':lang==='es'?'es-419':'en';
-      var track = document.getElementById('marquee-track');
-      var mk = document.body.getAttribute('data-marquee-key');
-      if (track && mk && tr && tr[mk]) {
-        var words = tr[mk], h = '';
-        for (var i=0;i<2;i++) words.forEach(function(w){h+='<span>'+w+'</span><span class="dot">·</span>';});
-        track.innerHTML = h;
-      }
-    }
-    setLang(_lang);
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);} });
+    }, {threshold:0.1});
+    revealEls.forEach(function(el){obs.observe(el);});
+    var hamburger = document.querySelector('.nav__hamburger');
+    var mobileMenu = document.querySelector('.mobile-menu');
+    var closeBtn = document.querySelector('.mobile-menu__close');
+    if (hamburger) hamburger.addEventListener('click', function() { mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; });
+    if (closeBtn) closeBtn.addEventListener('click', function() { mobileMenu.classList.remove('open'); document.body.style.overflow=''; });
+    document.querySelectorAll('.mobile-menu a').forEach(function(a) { a.addEventListener('click', function() { mobileMenu.classList.remove('open'); document.body.style.overflow=''; }); });
   </script>
 </body>
 </html>
