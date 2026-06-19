@@ -505,9 +505,15 @@
       .footer-bottom { flex-direction: column; gap: 0.5rem; padding: 1.5rem 2rem; text-align: center; }
       .cta-strip { padding: 4rem 2rem; }
     }
+  
+    .lang-switcher { display:flex; align-items:center; gap:0.5rem; margin-left:1.5rem; }
+    .lang-btn { font-family:'Montserrat',sans-serif; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--sand); opacity:0.6; background:none; border:none; cursor:pointer; padding:0.2rem 0.4rem; transition:opacity 0.2s; }
+    .lang-btn:hover, .lang-btn.active { opacity:1; }
+    .lang-btn.active { border-bottom:1px solid var(--sand); }
+    .lang-divider { color:var(--sand); opacity:0.3; font-size:9px; }
   </style>
 </head>
-<body>
+<body data-page="policies">
 
   <nav class="nav" id="nav">
     <a href="index.html" class="nav__logo">
@@ -522,6 +528,13 @@
       <li><a href="gallery.html">Gallery</a></li>
     </ul>
     <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="nav__cta" target="_blank" rel="noopener">Book Now</a>
+        <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <span class="lang-divider">|</span>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <span class="lang-divider">|</span>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+    </div>
     <button class="nav__hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -539,9 +552,9 @@
   </div>
 
   <div class="page-hero">
-    <p class="eyebrow">The Fine Print</p>
-    <h1 class="heading">Studio <em>Policies</em></h1>
-    <p>To ensure the best experience for every client, please take a moment to review these policies before your appointment.</p>
+    <p class="eyebrow" data-i18n="pol_eyebrow">The Fine Print</p>
+    <h1 class="heading"><span data-i18n="pol_h1">Studio</span> <em data-i18n="pol_em">Policies</em></h1>
+    <p><span data-i18n="pol_hero_body">To ensure the best experience for every client, please take a moment to review these policies before your appointment.</span></p>
   </div>
 
   <div class="policies-wrap">
@@ -550,8 +563,8 @@
       <div class="policy-card__header">
         <div class="policy-card__number">01</div>
         <div>
-          <p class="policy-card__subtitle">Booking</p>
-          <h2 class="policy-card__title">Consultation Policy</h2>
+          <p class="policy-card__subtitle" data-i18n="pol_01_sub">Booking</p>
+          <h2 class="policy-card__title" data-i18n="pol_01_title">Consultation Policy</h2>
         </div>
       </div>
       <div class="policy-card__body">
@@ -565,8 +578,8 @@
       <div class="policy-card__header">
         <div class="policy-card__number">02</div>
         <div>
-          <p class="policy-card__subtitle">Scheduling</p>
-          <h2 class="policy-card__title">Cancellation Policy</h2>
+          <p class="policy-card__subtitle" data-i18n="pol_02_sub">Scheduling</p>
+          <h2 class="policy-card__title" data-i18n="pol_02_title">Cancellation Policy</h2>
         </div>
       </div>
       <div class="policy-card__body">
@@ -582,8 +595,8 @@
       <div class="policy-card__header">
         <div class="policy-card__number">03</div>
         <div>
-          <p class="policy-card__subtitle">Attendance</p>
-          <h2 class="policy-card__title">No-Show Policy</h2>
+          <p class="policy-card__subtitle" data-i18n="pol_03_sub">Attendance</p>
+          <h2 class="policy-card__title" data-i18n="pol_03_title">No-Show Policy</h2>
         </div>
       </div>
       <div class="policy-card__body">
@@ -598,8 +611,8 @@
       <div class="policy-card__header">
         <div class="policy-card__number">04</div>
         <div>
-          <p class="policy-card__subtitle">Timing</p>
-          <h2 class="policy-card__title">Late Arrival Policy</h2>
+          <p class="policy-card__subtitle" data-i18n="pol_04_sub">Timing</p>
+          <h2 class="policy-card__title" data-i18n="pol_04_title">Late Arrival Policy</h2>
         </div>
       </div>
       <div class="policy-card__body">
@@ -614,8 +627,8 @@
       <div class="policy-card__header">
         <div class="policy-card__number">05</div>
         <div>
-          <p class="policy-card__subtitle">Payments</p>
-          <h2 class="policy-card__title">Deposit Policy</h2>
+          <p class="policy-card__subtitle" data-i18n="pol_05_sub">Payments</p>
+          <h2 class="policy-card__title" data-i18n="pol_05_title">Deposit Policy</h2>
         </div>
       </div>
       <div class="policy-card__body">
@@ -630,8 +643,8 @@
       <div class="policy-card__header">
         <div class="policy-card__number">06</div>
         <div>
-          <p class="policy-card__subtitle">Studio Environment</p>
-          <h2 class="policy-card__title">Children in the Studio</h2>
+          <p class="policy-card__subtitle" data-i18n="pol_06_sub">Studio Environment</p>
+          <h2 class="policy-card__title" data-i18n="pol_06_title">Children in the Studio</h2>
         </div>
       </div>
       <div class="policy-card__body">
@@ -649,11 +662,11 @@
   </div>
 
   <section class="cta-strip">
-    <p class="eyebrow">Ready to Book?</p>
-    <h2 class="heading">Let's get you <em>scheduled</em></h2>
-    <p>New clients start with a consultation. Existing clients can book directly online.</p>
-    <a href="contact.html" class="cta-btn">Request a Consultation</a>
-    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="cta-btn" style="background:transparent;color:var(--sand);border-color:var(--sand);" target="_blank" rel="noopener">Book an Appointment</a>
+    <p class="eyebrow" data-i18n="pol_cta_eyebrow">Ready to Book?</p>
+    <h2 class="heading">Let's get you <em><em data-i18n="pol_cta_em">scheduled</em></em></h2>
+    <p><span data-i18n="pol_cta_body">New clients start with a consultation. Existing clients can book directly online.</span></p>
+    <a href="contact.html" class="cta-btn"><span data-i18n="pol_cta_btn1">Request a Consultation</span></a>
+    <a href="https://book.squareup.com/appointments/rt3pqesdcod89x/location/LMBRDJYVNBJ9A/services" class="cta-btn" style="background:transparent;color:var(--sand);border-color:var(--sand);" target="_blank" rel="noopener"><span data-i18n="pol_cta_btn2">Book an Appointment</span></a>
   </section>
 
   <div class="footer-grid">
@@ -704,6 +717,36 @@
     if (hamburger) hamburger.addEventListener('click', function() { mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; });
     if (closeBtn) closeBtn.addEventListener('click', function() { mobileMenu.classList.remove('open'); document.body.style.overflow=''; });
     document.querySelectorAll('.mobile-menu a').forEach(function(a) { a.addEventListener('click', function() { mobileMenu.classList.remove('open'); document.body.style.overflow=''; }); });
+  </script>
+  <script>
+    (function() {
+      var hamburger = document.querySelector('.nav__hamburger');
+      var mobileMenu = document.querySelector('.mobile-menu');
+      var closeBtn = document.querySelector('.mobile-menu__close');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() { mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; });
+        if (closeBtn) closeBtn.addEventListener('click', function() { mobileMenu.classList.remove('open'); document.body.style.overflow=''; });
+        document.querySelectorAll('.mobile-menu a').forEach(function(a) { a.addEventListener('click', function() { mobileMenu.classList.remove('open'); document.body.style.overflow=''; }); });
+      }
+    })();
+  </script>
+  <script src="js/i18n.js"></script>
+  <script>
+    var _lang = localStorage.getItem('ezhairr_lang') || 'en';
+    function setLang(lang) {
+      _lang = lang;
+      localStorage.setItem('ezhairr_lang', lang);
+      var tr = EZ_TRANSLATIONS[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var k = el.getAttribute('data-i18n');
+        if (tr && tr[k] !== undefined) el.textContent = tr[k];
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(b) {
+        b.classList.toggle('active', b.textContent.toLowerCase() === lang);
+      });
+      document.documentElement.lang = lang==='pt'?'pt-BR':lang==='es'?'es-419':'en';
+    }
+    setLang(_lang);
   </script>
 </body>
 </html>
