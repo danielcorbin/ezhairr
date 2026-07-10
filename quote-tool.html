@@ -269,7 +269,7 @@
       <div class="totals">
         <div class="row"><span class="label">Subtotal</span><span id="subtotal">$350</span></div>
         <div class="row total"><span class="label">Total</span><span id="total" contenteditable="true">$350</span></div>
-        <div class="row deposit"><span class="label">Deposit (25%)</span><span id="deposit" contenteditable="true">$88</span></div>
+        <div class="row deposit"><span class="label">Deposit (50%)</span><span id="deposit" contenteditable="true">$175</span></div>
       </div>
 
       <div class="divider"><div class="diamond"></div></div>
@@ -330,13 +330,13 @@
     const subtotal = amounts.reduce((sum, el) => sum + parseAmount(el.textContent), 0);
     document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(0);
     document.getElementById('total').textContent = '$' + subtotal.toFixed(0);
-    document.getElementById('deposit').textContent = '$' + Math.round(subtotal * 0.25);
+    document.getElementById('deposit').textContent = '$' + Math.round(subtotal * 0.5);
   }
 
   // Recalculate total/deposit if someone manually edits the Total field directly
   document.getElementById('total').addEventListener('input', function () {
     const total = parseAmount(this.textContent);
-    document.getElementById('deposit').textContent = '$' + Math.round(total * 0.25);
+    document.getElementById('deposit').textContent = '$' + Math.round(total * 0.5);
   });
 
   function todayFormatted() {
