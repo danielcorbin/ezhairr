@@ -214,10 +214,10 @@
   /* ----- Print ----- */
   @media print {
     * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
-    body { background: #F5EFE2; padding-bottom: 0; }
+    html, body { height: 11in; overflow: hidden; background: #F5EFE2; padding-bottom: 0; }
     .toolbar, .hint, .remove, .add-row { display: none !important; }
-    .page-wrap { box-shadow: none; margin: 0; max-width: 100%; background: #F5EFE2; }
-    .sheet { padding: 0.4in 0.55in; }
+    .page-wrap { box-shadow: none; margin: 0; max-width: 100%; background: #F5EFE2; display: flex; justify-content: center; }
+    .sheet { padding: 0.4in 0.55in; transform-origin: top center; }
     [contenteditable="true"] { border-bottom: none; }
     .eyebrow, .items-head, .doc-header .title .meta { color: #5C4A3A !important; }
     .notes { opacity: 1; color: #2A241D; }
@@ -361,6 +361,26 @@
   // Set today's date on load
   document.getElementById('quote-date').textContent = todayFormatted();
   calc();
+
+  // ----- Force the printed quote to always fit on a single page -----
+  const PAGE_HEIGHT_PX = 96 * 11; // letter page height at 96 CSS px/inch, matches @page size
+
+  function fitToOnePage() {
+    const sheet = document.querySelector('.sheet');
+    sheet.style.transform = 'none';
+    const naturalHeight = sheet.scrollHeight;
+    if (naturalHeight > PAGE_HEIGHT_PX) {
+      const scale = (PAGE_HEIGHT_PX / naturalHeight) * 0.98; // small safety margin
+      sheet.style.transform = 'scale(' + scale + ')';
+    }
+  }
+
+  function resetScale() {
+    document.querySelector('.sheet').style.transform = 'none';
+  }
+
+  window.addEventListener('beforeprint', fitToOnePage);
+  window.addEventListener('afterprint', resetScale);
 </script>
 
 </body>
