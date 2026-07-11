@@ -213,11 +213,15 @@
 
   /* ----- Print ----- */
   @media print {
-    body { background: #fff; padding-bottom: 0; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { background: #EFE3CE; padding-bottom: 0; }
     .toolbar, .hint, .remove, .add-row { display: none !important; }
-    .page-wrap { box-shadow: none; margin: 0; max-width: 100%; }
+    .page-wrap { box-shadow: none; margin: 0; max-width: 100%; background: #EFE3CE; }
     .sheet { padding: 0.4in 0.55in; }
     [contenteditable="true"] { border-bottom: none; }
+    .eyebrow, .items-head, .doc-header .title .meta { color: #5C4A3A !important; }
+    .notes { opacity: 1; color: #2A241D; }
+    .item-row .amt, .totals .label { color: #5C4A3A !important; }
     @page { size: letter; margin: 0; }
   }
 </style>
